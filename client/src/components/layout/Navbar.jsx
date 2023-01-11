@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as NavLink, Link, useNavigate } from "react-router-dom";
+import { Link as NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -36,6 +36,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+        <div className="rightEmpty" class="bg-slate-500 w-[10%] min-w-0"></div>
       </div>
     </>
   );
