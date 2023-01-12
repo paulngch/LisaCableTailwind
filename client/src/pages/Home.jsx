@@ -1,5 +1,6 @@
 import React from "react";
 import CommissionsContainer from "../components/home/CommissionsContainer";
+
 import SpecsContainer from "../components/home/SpecsContainer";
 
 export default function Home() {
