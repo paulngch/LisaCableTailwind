@@ -1,5 +1,5 @@
 import React from "react";
-import CommissionsContainer from "../components/home/CommissionsContainer";
+import Featured from "../components/home/Featured";
 
 import SpecsContainer from "../components/home/SpecsContainer";
 
@@ -14,7 +14,7 @@ export default function Home() {
           <div>ALBUM CAROUSEL</div>
           <button class="bg-pink-600">VIEW ALL</button>
         </div> */}
-        <CommissionsContainer/>
+        <Featured/>
         <SpecsContainer/>
       </div>
     </>
