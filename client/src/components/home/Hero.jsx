@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -26,13 +27,14 @@ export default function Hero() {
                   {/* <span class="block sm:inline"></span> */}
                 </h2>
                 <p class="mt-3 text-xl text-white">
-                  Completed commissions have, well, been completed. Check out the commissions from previous limited batches.
+                  Completed commissions have, well, been completed. Check out
+                  the commissions from previous limited batches.
                 </p>
                 <a
                   href="#"
                   class="mt-8 block w-full rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
-                  See Album
+                  <NavLink to="/album">See Album</NavLink>
                 </a>
               </div>
             </div>
