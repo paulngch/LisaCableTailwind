@@ -1,28 +1,28 @@
 const getData = [
   {
-    headline: "neongreen",
+    name: "neongreen",
     imageUrl: "/neongreenbraid.jpg",
-    description: "Braided single-color",
+    type: "Braided single-color",
   },
   {
-    headline: "black",
+    name: "black",
     imageUrl: "/brownbraidmulticolor.jpg",
-    description: "Braided multi-color",
+    type: "Braided multi-color",
   },
   {
-    headline: "trrs cable braided",
+    name: "trrs cable braided",
     imageUrl: "/trrssingle.jpg",
-    description: "Braided single-color trrs",
+    type: "Braided single-color trrs",
   },
   {
-    headline: "trrs cable braided",
+    name: "trrs cable braided",
     imageUrl: "/trrsbraid.jpg",
-    description: "Braided multi-color trrs",
+    type: "Braided multi-color trrs",
   },
   {
-    headline: "straight cable",
+    name: "straight cable",
     imageUrl: "/straightwhite.jpg",
-    description: "Straight cable",
+    type: "Straight cable",
   },
 ];
 
