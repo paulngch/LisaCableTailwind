@@ -3,7 +3,8 @@ const express = require("express");
 const morgan = require("morgan");
 const path = require("path")
 const mongoose = require("mongoose");
-import authRoutes from "./controllers/auth.js";
+import authRoutes from "./routes/auth.js";
+import createRoutes from "./routes/create.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,8 @@ const usersController = require("./controllers/usersController.js");
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/api/users", usersController);
+app.use("/auth", authRoutes);
+app.use("/create". createRoutes);
 
 //MONGO
 const mongoURI = process.env.SECRET_KEY;
@@ -37,7 +40,7 @@ db.on("disconnected", () => console.log("mongo disconnected"));
 app.get("/api/", (req, res) => {
   res.json({ msg: "Hello World! It's the beginning of something exciting!" });
 });
-app.use("/auth", authRoutes);
+
 
 //Listener
 db.once("open", () => {
