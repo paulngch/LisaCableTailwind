@@ -3,7 +3,7 @@ import React from "react";
 export default function RequestForm() {
   return (
     <>
-      <div>
+      {/* <div>
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="md:col-span-1">
             <div class="px-4 sm:px-0">
@@ -11,8 +11,7 @@ export default function RequestForm() {
                 Profile
               </h3>
               <p class="mt-1 text-sm text-gray-600">
-                This information will be displayed publicly so be careful what
-                you share.
+                This information is used to draft up an initial quotation.
               </p>
             </div>
           </div>
@@ -23,7 +22,7 @@ export default function RequestForm() {
                   <div class="grid grid-cols-3 gap-6">
                     <div class="col-span-3 sm:col-span-2">
                       <label
-                        for="company-website"
+                        className="company-website"
                         class="block text-sm font-medium text-gray-700"
                       >
                         Website
@@ -45,7 +44,7 @@ export default function RequestForm() {
 
                   <div>
                     <label
-                      for="about"
+                      className="about"
                       class="block text-sm font-medium text-gray-700"
                     >
                       About
@@ -102,14 +101,14 @@ export default function RequestForm() {
                         >
                           <path
                             d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           />
                         </svg>
                         <div class="flex text-sm text-gray-600">
                           <label
-                            for="file-upload"
+                            className="file-upload"
                             class="relative cursor-pointer rounded-md bg-white font-medium text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2 hover:text-indigo-500"
                           >
                             <span>Upload a file</span>
@@ -168,7 +167,7 @@ export default function RequestForm() {
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <label
-                        for="first-name"
+                        className="first-name"
                         class="block text-sm font-medium text-gray-700"
                       >
                         First name
@@ -177,14 +176,14 @@ export default function RequestForm() {
                         type="text"
                         name="first-name"
                         id="first-name"
-                        autocomplete="given-name"
+                        autoComplete="given-name"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <label
-                        for="last-name"
+                        className="last-name"
                         class="block text-sm font-medium text-gray-700"
                       >
                         Last name
@@ -193,14 +192,14 @@ export default function RequestForm() {
                         type="text"
                         name="last-name"
                         id="last-name"
-                        autocomplete="family-name"
+                        autoComplete="family-name"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <label
-                        for="email-address"
+                        className="email-address"
                         class="block text-sm font-medium text-gray-700"
                       >
                         Email address
@@ -209,14 +208,14 @@ export default function RequestForm() {
                         type="text"
                         name="email-address"
                         id="email-address"
-                        autocomplete="email"
+                        autoComplete="email"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <label
-                        for="country"
+                        className="country"
                         class="block text-sm font-medium text-gray-700"
                       >
                         Country
@@ -224,7 +223,7 @@ export default function RequestForm() {
                       <select
                         id="country"
                         name="country"
-                        autocomplete="country-name"
+                        autoComplete="country-name"
                         class="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       >
                         <option>United States</option>
@@ -235,7 +234,7 @@ export default function RequestForm() {
 
                     <div class="col-span-6">
                       <label
-                        for="street-address"
+                        className="street-address"
                         class="block text-sm font-medium text-gray-700"
                       >
                         Street address
@@ -244,14 +243,14 @@ export default function RequestForm() {
                         type="text"
                         name="street-address"
                         id="street-address"
-                        autocomplete="street-address"
+                        autoComplete="street-address"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                       <label
-                        for="city"
+                        className="city"
                         class="block text-sm font-medium text-gray-700"
                       >
                         City
@@ -260,14 +259,14 @@ export default function RequestForm() {
                         type="text"
                         name="city"
                         id="city"
-                        autocomplete="address-level2"
+                        autoComplete="address-level2"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                       <label
-                        for="region"
+                        className="region"
                         class="block text-sm font-medium text-gray-700"
                       >
                         State / Province
@@ -276,14 +275,14 @@ export default function RequestForm() {
                         type="text"
                         name="region"
                         id="region"
-                        autocomplete="address-level1"
+                        autoComplete="address-level1"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                       <label
-                        for="postal-code"
+                        className="postal-code"
                         class="block text-sm font-medium text-gray-700"
                       >
                         ZIP / Postal code
@@ -292,7 +291,7 @@ export default function RequestForm() {
                         type="text"
                         name="postal-code"
                         id="postal-code"
-                        autocomplete="postal-code"
+                        autoComplete="postal-code"
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
@@ -354,7 +353,7 @@ export default function RequestForm() {
                         </div>
                         <div class="ml-3 text-sm">
                           <label
-                            for="comments"
+                            className="comments"
                             class="font-medium text-gray-700"
                           >
                             Comments
@@ -376,7 +375,7 @@ export default function RequestForm() {
                         </div>
                         <div class="ml-3 text-sm">
                           <label
-                            for="candidates"
+                            className="candidates"
                             class="font-medium text-gray-700"
                           >
                             Candidates
@@ -396,7 +395,10 @@ export default function RequestForm() {
                           />
                         </div>
                         <div class="ml-3 text-sm">
-                          <label for="offers" class="font-medium text-gray-700">
+                          <label
+                            className="offers"
+                            class="font-medium text-gray-700"
+                          >
                             Offers
                           </label>
                           <p class="text-gray-500">
@@ -423,7 +425,7 @@ export default function RequestForm() {
                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
-                          for="push-everything"
+                          className="push-everything"
                           class="ml-3 block text-sm font-medium text-gray-700"
                         >
                           Everything
@@ -437,7 +439,7 @@ export default function RequestForm() {
                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
-                          for="push-email"
+                          className="push-email"
                           class="ml-3 block text-sm font-medium text-gray-700"
                         >
                           Same as email
@@ -451,7 +453,7 @@ export default function RequestForm() {
                           class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-500"
                         />
                         <label
-                          for="push-nothing"
+                          className="push-nothing"
                           class="ml-3 block text-sm font-medium text-gray-700"
                         >
                           No push notifications
@@ -472,7 +474,7 @@ export default function RequestForm() {
             </form>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
