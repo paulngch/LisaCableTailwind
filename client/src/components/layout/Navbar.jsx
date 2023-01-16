@@ -6,17 +6,26 @@ export default function Navbar() {
     <>
       <div
         className="bannerContainer"
-        class="border-b border-gray-200 flex flex-row justify-center mt-2 bg-pink-600 max-h-40 "
+        class="border-b border-gray-200 flex flex-row justify-center mt-2 max-h-40 "
       >
-        <div className="logo" class="bg-slate-400 max-w-[10%] ">
-          <img class="hidden h-full w-full max-h-28 lg:block" src="/LisaWorksLogo.png" />
+        <div
+          className="logo"
+          class="flex justify-center items-center mt-3  max-w-[10%] "
+        >
+          <img
+            class="hidden h-full w-full max-h-32 lg:block"
+            src="/LisaWorksLogo.png"
+          />
         </div>
         <div
           className="bannerRightContainer"
-          class=" flex flex-col bg-blue-200 justify-center w-[60%]"
+          class=" flex flex-col justify-center w-[60%]"
         >
-          <div className="storeName" class=" text-center text-2xl pt-3 pb-1">
-            LISA WORKS
+          <div
+            className="storeName"
+            class=" text-center text-2xl pt-3 pb-1 flex justify-center"
+          >
+            <img class="flex h-20" src="/LisaWorksword.png" />
           </div>
           <div className="buttonContainer" class="flex">
             <button class="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
@@ -36,7 +45,10 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        <div className="rightEmpty" class="hidden bg-slate-500 w-[10%] min-w-0 lg:block"></div>
+        <div
+          className="rightEmpty"
+          class="hidden w-[10%] min-w-0 lg:block"
+        ></div>
       </div>
     </>
   );
