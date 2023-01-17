@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
 require("dotenv").config();
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
+const {
+  S3Client,
+  PutObjectCommand,
+  GetObjectCommand,
+} = require("@aws-sdk/client-s3");
+const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
+
 const multer = require("multer");
 const crypto = require("crypto");
+const Cable = require("../models/cable");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -25,6 +32,29 @@ const s3 = new S3Client({
 });
 
 //===============================
+//GET request for the images in the album
+router.get("/", async (req, res) => {
+  try {
+    // const cables = await Cable.find().exec();
+    const cables = await Cable.find().exec();
+    for (let cable of cables) {
+      const getObjectParams = {
+        Bucket: bucketName,
+        Key: cable.image,
+      };
+
+      const command = new GetObjectCommand(getObjectParams);
+      const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
+      cable.imageUrl = url;
+      console.log(cable.imageUrl);
+    }
+    res.status(201).json(cables);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+//===============================
 //Uploading (POST) image to S3 & sending to mongo
 router.post("/", upload.single("image"), async (req, res) => {
   console.log("req.body", req.body);
@@ -42,9 +72,18 @@ router.post("/", upload.single("image"), async (req, res) => {
   const command = new PutObjectCommand(params);
   await s3.send(command);
 
+  //creating cable from schema, sending to mongoDB
+  try {
+    const cable = await Cable.create({
+      description: req.body.description,
+      image: imageName,
+    });
+    res.status(201).json(cable);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
 
-
-  res.send({});
+  // res.send({});
 });
 // router.get("/create", (req, res, next) => {});
 
