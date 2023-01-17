@@ -1,13 +1,35 @@
 import React from "react";
+import axios from "axios";
 
 export default function UploadCable() {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = document.getElementById("form");
+    const formData = new FormData(form);
+
+    // console.log([...formData]);
+    // console.log(`${import.meta.env.VITE_BASE_URL}`);
+    try {
+      const res = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/cable`,
+        formData
+      );
+      console.log(res);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div className="formContainer m-10 p-10">
       <form
-        action="/posts"
-        method="POST"
+        // action={`${import.meta.env.VITE_BASE_URL}`}
+        // method="POST"
         encType="multipart/form-data"
         className="space-y-8 divide-y divide-gray-200"
+        id="form"
+        onSubmit={handleSubmit}
       >
         <div className="space-y-8 divide-y divide-gray-200">
           <div>
@@ -34,7 +56,7 @@ export default function UploadCable() {
                 <div className="mt-1">
                   <textarea
                     id="about"
-                    name="about"
+                    name="description"
                     rows={3}
                     className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                     defaultValue={""}
@@ -48,13 +70,24 @@ export default function UploadCable() {
 
               <div className="sm:col-span-6">
                 <label
-                  htmlFor="cover-photo"
+                  htmlFor="cable-photo"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Cable photo
                 </label>
-                <div className="mt-1 flex justify-center rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
-                  <div className="space-y-1 text-center">
+                <div className="mt-1 flex flex-col justify-start rounded-md border-2 border-dashed border-gray-300 px-6 pt-5 pb-6">
+                  <div>
+                    <label htmlFor="photo"> Select photo:</label>
+                  </div>
+                  <div>
+                    <input
+                      type="file"
+                      name="image"
+                      accept="image/*"
+                      id="image"
+                    />
+                  </div>
+                  {/* <div className="space-y-1 text-center">
                     <svg
                       className="mx-auto h-12 w-12 text-gray-400"
                       stroke="currentColor"
@@ -84,7 +117,7 @@ export default function UploadCable() {
                       </label>
                     </div>
                     <p className="text-xs text-gray-500">PNG, JPG</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

@@ -1,8 +1,8 @@
 const express = require("express");
+const app = express();
 const router = express.Router();
 require("dotenv").config();
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-const app = express();
 const multer = require("multer");
 
 const storage = multer.memoryStorage();
@@ -21,7 +21,7 @@ const s3 = new S3Client({
   region: bucketRegion,
 });
 
-app.post("/posts", upload.single("image"), async (req, res) => {
+router.post("/", upload.single("image"), async (req, res) => {
   console.log("req.body", req.body);
   console.log("req.file", req.file);
 
@@ -29,7 +29,7 @@ app.post("/posts", upload.single("image"), async (req, res) => {
 
   const params = {
     Bucket: bucketName,
-    Key: req.file.originalName,
+    Key: req.file.originalname,
     Body: req.file.buffer,
     ContentType: req.file.mimetype,
   };
@@ -39,6 +39,6 @@ app.post("/posts", upload.single("image"), async (req, res) => {
 
   res.send({});
 });
-router.get("/create", (req, res, next) => {});
+// router.get("/create", (req, res, next) => {});
 
 module.exports = router;

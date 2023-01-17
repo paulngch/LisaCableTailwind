@@ -4,27 +4,35 @@ const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.js");
-const createRoutes = require("./routes/create.js");
 
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Import
 const usersController = require("./controllers/usersController.js");
+const cablesController = require("./controllers/cablesController.js")
 
 //MIDDLEWARE
 app.use(express.json());
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
+  })
+);
 app.use(morgan("dev"));
 app.use("/api/users", usersController);
 app.use("/auth", authRoutes);
-app.use("/create", createRoutes);
+app.use("/api/cable", cablesController);
 
 //MONGO
 const mongoURI = process.env.SECRET_KEY;
 const db = mongoose.connection;
 // mongoose.set("runValidators", true); // here is your global setting
-// mongoose.set("strictQuery", false);
+mongoose.set("strictQuery", false);
 // mongoose.set("debug", true);
 mongoose.connect(mongoURI);
 
