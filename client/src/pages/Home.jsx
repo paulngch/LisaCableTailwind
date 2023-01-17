@@ -7,7 +7,7 @@ import SpecsContainer from "../components/home/SpecsContainer";
 export default function Home() {
   return (
     <>
-      <div className="homeContainer" class="flex flex-col items-center">
+      <div className="homeContainer flex flex-col items-center">
         <Hero />
         <Featured />
         <SpecsContainer />

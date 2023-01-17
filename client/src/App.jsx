@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Request from "./pages/Request";
 import SharedLayout from "./pages/SharedLayout";
+import UploadCable from "./pages/UploadCable";
 
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
             <Route path="/charity" element={<Charity />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/uploadcable" element={<UploadCable />} />
           </Route>
         </Routes>
       </BrowserRouter>

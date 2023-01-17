@@ -3,20 +3,20 @@ import React from "react";
 export default function About() {
   return (
     <>
-      <div className="aboutHeader" class="flex bg-slate-400 h-44 items-center ">
+      <div className=" aboutHeader flex bg-slate-400 h-44 items-center ">
         <div>
           <img
-            class="h-44 ml-40 hidden lg:block "
+            className="h-44 ml-40 hidden lg:block "
             src="feathertippenlogo.png"
           />
         </div>
 
-        <div class="text-4xl p-2 m-2">Our Story</div>
-        <div class="text-4xl">|</div>
-        <div class="text-4xl m-2 p-2">LisaWorks</div>
+        <div className="text-4xl p-2 m-2">Our Story</div>
+        <div className="text-4xl">|</div>
+        <div className="text-4xl m-2 p-2">LisaWorks</div>
       </div>
-      <div class="flex justify-center">
-        <p className="storyContainer" class="flex w-2/3 m-2 p-2 pt-6 text-lg">
+      <div className="flex justify-center">
+        <p className="storyContainer flex w-2/3 m-2 p-2 pt-6 text-lg">
           Hi, my name is Paul and my story began back in August 2022 when I was
           looking for something meaningful to do in-between jobs.
           <br />
