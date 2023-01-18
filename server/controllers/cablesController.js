@@ -13,6 +13,8 @@ const multer = require("multer");
 const crypto = require("crypto");
 const Cable = require("../models/cable");
 
+const checkAuth= require("../middleware/checkAuth")
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -40,7 +42,7 @@ let cableListObject = [{}];
 
 //===============================
 //GET request for ALL* images in the album
-router.get("/", async (req, res) => {
+router.get("/",async (req, res) => {
   try {
     // const cables = await Cable.find().exec();
     cableUrlArray = [];
