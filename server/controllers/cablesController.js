@@ -5,6 +5,7 @@ const {
   S3Client,
   PutObjectCommand,
   GetObjectCommand,
+  DeleteObjectCommand,
 } = require("@aws-sdk/client-s3");
 const { getSignedUrl } = require("@aws-sdk/s3-request-presigner");
 
@@ -76,10 +77,10 @@ router.get("/", async (req, res) => {
 
 //===============================
 //GET request for SINGLE* image in the album
-router.get("/:params", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const { params } = req.params;
-    const singleCable = await Cable.findById(params);
+    const { id } = req.params;
+    const singleCable = await Cable.findById(id);
     const getObjectParams = {
       Bucket: bucketName,
       Key: singleCable.image,
@@ -87,11 +88,12 @@ router.get("/:params", async (req, res) => {
     const command = new GetObjectCommand(getObjectParams);
     const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
     singleCable.imageUrl = url;
+    console.log("SINGLECABLE%^#$", singleCable);
     console.log(singleCable.imageUrl);
     if (!singleCable) {
       return res.status(400).json({
         data: "",
-        error: "No Product Found",
+        error: "No Cable Found",
       });
     }
     res.status(200).json({
@@ -105,7 +107,6 @@ router.get("/:params", async (req, res) => {
     });
   }
 });
-
 
 //===============================
 //Uploading (POST) image to S3 & sending to mongo
@@ -141,5 +142,77 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 //===============================
 //Deleting uploaded image from S3 & removing from mongo
+router.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const singleCable = await Cable.findById(id);
+    const getObjectParams = {
+      Bucket: bucketName,
+      Key: singleCable.image,
+    };
+    const command = new DeleteObjectCommand(getObjectParams);
+    await s3.send(command);
+    await Cable.findByIdAndRemove(id);
+    if (!singleCable) {
+      return res.status(400).json({
+        data: "",
+        error: "No Cable Found",
+      });
+    }
+    res.status(200).json({
+      msg: `cable ${id} successfully deleted`,
+      error: "",
+    });
+  } catch (error) {
+    return res.status(400).json({
+      data: "",
+      error: error.message,
+    });
+  }
+});
 
+//===============================
+//Editing uploaded image's description & sending to mongoDB
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const updatedCable = await Cable.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    res.status(200).send(updatedCable);
+  } catch (error) {
+    return res.status(400).json({
+      data: "",
+      error: error.message,
+    });
+  }
+});
+
+//===============================
+//Pagination
+// router.get('/', async (req, res) => {
+//   // Destructing the parameters and giving them a default value
+//   let { limit = 1, page = 1, q } = req.query;
+
+//   // Convert Limit and Page to Strings
+//   // Good for pagination
+//   const limitRecords = parseInt(limit);
+//   const skip = (page -1) * limit;
+
+//   // Insert everyting into one 'Query' object and check if empty
+//   let query = {};
+//   if(q) {
+//     query = {$text: {$search: q}};
+//   }
+
+//   try {
+//     // Insert the 'Query' object add the Limit Record and Skip
+//     const cables = await Cable.find(query).limit(limitRecords).skip(skip);
+//     res.json({ page: page, limit:limitRecords, cables});
+//   } catch (err) {
+//     res.status(400).json( {message: err })
+//   }
+
+// })
 module.exports = router;
