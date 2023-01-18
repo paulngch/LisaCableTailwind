@@ -35,7 +35,7 @@ export default function UploadCable() {
           <div>
             <div>
               <h1 className="text-2xl pb-10 font-medium leading-6 text-gray-900">
-                Admin Cable Upload
+                Album Cable Upload
               </h1>
               <h3 className="text-lg font-medium leading-6 text-gray-900">
                 Upload a Cable
