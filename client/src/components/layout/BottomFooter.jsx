@@ -8,14 +8,11 @@ export default function BottomFooter() {
         <hr className=" w-[80%] h-0.5 my-8 bg-gray-300 border-0 rounded dark:bg-gray-700" />
       </div>
 
-      <div
- 
-        className="footerContainer flex items-start justify-evenly space-x-40"
-      >
+      <div className="footerContainer flex items-start justify-evenly space-x-40">
         <div className="footerLeft flex flex-col p-2 bg-slate-500m">
           <div className="flex text-xl font-semibold">Lisa Works</div>
           <div className="flex">Our Social Media:</div>
-          <div  className="socialIcons flex">
+          <div className="socialIcons flex">
             <img className="max-h-11 p-2" src="/facebook.png" />
             <img className="max-h-11 p-2" src="/Instagram.png" />
           </div>
@@ -38,11 +35,19 @@ export default function BottomFooter() {
             <button className="text-gray-700 w-1/2 text-left py-2">
               <NavLink to="/about">About</NavLink>
             </button>
+            {!localStorage.getItem("token") && (
+              <button className="text-gray-700 w-1/2 text-left py-2">
+                <NavLink to="/login">Login</NavLink>
+              </button>
+            )}
+            {localStorage.getItem("token") && (
+              <button className="text-gray-700 w-1/2 text-left py-2">
+                <NavLink to="/">Logout</NavLink>
+              </button>
+            )}
           </div>
         </div>
-        <div className="footerRight p-2 mt-4">
-          Copyright © 2023. LisaWorks
-        </div>
+        <div className="footerRight p-2 mt-4">Copyright © 2023. LisaWorks</div>
       </div>
     </div>
   );

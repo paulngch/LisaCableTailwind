@@ -41,7 +41,7 @@ export default function Login() {
         data = loginData;
         console.log(data);
         localStorage.setItem("token", data.data.token);
-        navigate("/cable");
+        navigate("/");
       } catch (error) {
         // console.log(error.message);
         // console.log(error.response.data.error[0].msg);
