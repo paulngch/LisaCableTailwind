@@ -2,6 +2,7 @@ const express = require("express");
 const JWT = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user.js");
+const checkAuth = require("../middleware/checkAuth.js");
 const router = express.Router();
 
 
@@ -63,5 +64,27 @@ router.post("/login", async (req, res) => {
     });
   }
 });
+
+// router.get("/user", checkAuth, async (req, res) => {
+//   try {
+//     const user = await User.findOne({ email: req.user });
+
+//     return res.status(200).json({
+//       data: {
+//         user: {
+//           id: user.id,
+//           email: user.email,
+//         },
+//       },
+//       error: "",
+//     });
+//   } catch (error) {
+//     return res.status(400).json({
+//       data: "",
+//       error: error.message,
+//     });
+//   }
+// });
+
 
 module.exports = router;

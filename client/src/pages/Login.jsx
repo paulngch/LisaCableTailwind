@@ -1,18 +1,53 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
+
+  let data;
   const formik = useFormik({
     initialValues: {
       email: "",
+      password: "",
     },
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email address").required("Required"),
     }),
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+
+    onChange: (values) => {
+      setEmail(values.email);
+      setPassword(values.password);
+    },
+    onSubmit: async ({ email, password }) => {
+      // alert(JSON.stringify(values, null, 2));
+      // setEmail(values.email);
+      // setPassword(values.password);
+      // alert(password);
+      // console.log(password);
+      try {
+        const { data: loginData } = await axios.post(
+          `${import.meta.env.VITE_BASE_URL}/auth/login`,
+          {
+            email,
+            password,
+          }
+        );
+        data = loginData;
+        console.log(data);
+        localStorage.setItem("token", data.data.token);
+        navigate("/cable");
+      } catch (error) {
+        // console.log(error.message);
+        // console.log(error.response.data.error[0].msg);
+        setErrorMsg(error.response.data.error[0].msg);
+        return errorMsg;
+      }
     },
   });
   return (
@@ -55,13 +90,16 @@ export default function Login() {
                   name="password"
                   type="password"
                   required
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                   placeholder="Password"
                 />
               </div>
             </div>
             <div>
- 
+              {errorMsg && <div className=" text-red-500">{errorMsg}</div>}
               {formik.touched.email && formik.errors.email ? (
                 <div>{formik.errors.email}</div>
               ) : null}
