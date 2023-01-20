@@ -44,7 +44,6 @@ let cableListObject = [{}];
 //GET request for ALL* images in the album
 router.get("/",async (req, res) => {
   try {
-    // const cables = await Cable.find().exec();
     cableUrlArray = [];
     cableDescArray = [];
     cableListObject = [];
@@ -57,20 +56,19 @@ router.get("/",async (req, res) => {
 
       const command = new GetObjectCommand(getObjectParams);
       const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
-      cable.imageUrl = url;
+      cable.imageUrl = url; 
       // console.log(cable.imageUrl);
       cableUrlArray.push(cable.imageUrl);
       // console.log(cableUrlArray);
       cableDescArray.push(cable.description);
     }
-    // cableDescArray.map((i) => {
-    //   cableUrlArray.map((j) => {
-    //     cableListObject.push({ desc: i, url: j });
-    //   });
-    // });
+
+    //==================
+    //Combining both arrays to give single array with key:value pair
     for (let i = 0; i < cableDescArray.length; i++) {
       cableListObject.push({ desc: cableDescArray[i], url: cableUrlArray[i] });
     }
+
     res.status(201).send(cableListObject);
   } catch (error) {
     res.status(500).json({ error });
