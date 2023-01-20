@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "server": "cd server && node server.js",
     "client": "cd client && npm run dev",
