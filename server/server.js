@@ -1,6 +1,5 @@
-import * as dotenv from "dotenv";
-dotenv.config();
 const express = require("express");
+require('dotenv').config()
 const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
