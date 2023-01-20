@@ -1,9 +1,10 @@
 const JWT = require("jsonwebtoken");
 
 module.exports = async (req, res, next) => {
-  const token = req.header("authorization");
+  let token = req.header("authorization");
   //   const token = req.header("x-auth-token");
 
+ 
   if (!token) {
     return res.status(403).json({
       data: "",
@@ -14,18 +15,19 @@ module.exports = async (req, res, next) => {
       ],
     });
   }
-  token = token.split(" ")[1];
+  // token = token.split(" ")[1];
 
   try {
     let user = await JWT.verify(token, process.env.JWT_SECRET);
     req.user = user.email;
+    // return res.status(200).json({ msg: "success" });
     next();
   } catch (error) {
-    return res.status(401).json({
+    return res.status(403).json({
       data: "",
       error: [
         {
-          msg: "unauthorized (access denied)",
+          msg: "unauthorized; not verified (access denied)",
         },
       ],
     });

@@ -3,11 +3,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+  const [user, setUser] = UserAuth();
   const navigate = useNavigate();
 
   let data;
@@ -25,11 +27,6 @@ export default function Login() {
       setPassword(values.password);
     },
     onSubmit: async ({ email, password }) => {
-      // alert(JSON.stringify(values, null, 2));
-      // setEmail(values.email);
-      // setPassword(values.password);
-      // alert(password);
-      // console.log(password);
       try {
         const { data: loginData } = await axios.post(
           `${import.meta.env.VITE_BASE_URL}/auth/login`,
@@ -38,14 +35,33 @@ export default function Login() {
             password,
           }
         );
-        data = loginData;
-        console.log(data);
-        localStorage.setItem("token", data.data.token);
-        navigate("/");
+        console.log(loginData);
+        if (loginData.data) {
+          // Set global user state on successful login
+          setUser({
+            data: {
+              id: loginData.data.user.id,
+              email: loginData.data.user.email,
+            },
+            error: null,
+            loading: false,
+          });
+          // Storing JWT in local storage
+          localStorage.setItem("token", loginData.data.token);
+
+          // Update axios header with token
+          axios.defaults.headers.common[
+            "authorization"
+          ] = `Bearer ${loginData.data.token}`;
+
+          // On Success
+          setEmail("");
+          setPassword("");
+          
+        }
+        // navigate("/");
       } catch (error) {
-        // console.log(error.message);
-        // console.log(error.response.data.error[0].msg);
-        setErrorMsg(error.response.data.error[0].msg);
+        setErrorMsg(error.loginData.data.error[0].msg);
         return errorMsg;
       }
     },
@@ -132,65 +148,3 @@ export default function Login() {
     </>
   );
 }
-// import React from 'react';
-// import { useFormik } from 'formik';
-// import * as Yup from 'yup';
-
-// export default function SignupForm () {
-//   const formik = useFormik({
-//     initialValues: {
-//       email: '',
-//     },
-//     validationSchema: Yup.object({
-//       email: Yup.string().email('Invalid email address').required('Required'),
-//     }),
-//     onSubmit: values => {
-//       alert(JSON.stringify(values, null, 2));
-//     },
-//   });
-//   return (
-//     <form onSubmit={formik.handleSubmit}>
-
-//       <label htmlFor="firstName">First Name</label>
-//       <input
-//         id="firstName"
-//         name="firstName"
-//         type="text"
-//         onChange={formik.handleChange}
-//         onBlur={formik.handleBlur}
-//         value={formik.values.firstName}
-//       />
-//       {formik.touched.firstName && formik.errors.firstName ? (
-//         <div>{formik.errors.firstName}</div>
-//       ) : null}
-
-//       <label htmlFor="lastName">Last Name</label>
-//       <input
-//         id="lastName"
-//         name="lastName"
-//         type="text"
-//         onChange={formik.handleChange}
-//         onBlur={formik.handleBlur}
-//         value={formik.values.lastName}
-//       />
-//       {formik.touched.lastName && formik.errors.lastName ? (
-//         <div>{formik.errors.lastName}</div>
-//       ) : null}
-
-//       <label htmlFor="email">Email Address</label>
-//       <input
-//         id="email"
-//         name="email"
-//         type="email"
-//         onChange={formik.handleChange}
-//         onBlur={formik.handleBlur}
-//         value={formik.values.email}
-//       />
-//       {formik.touched.email && formik.errors.email ? (
-//         <div>{formik.errors.email}</div>
-//       ) : null}
-
-//       <button type="submit">Submit</button>
-//     </form>
-//   );
-// };

@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link as NavLink, Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../../context/AuthContext";
 
 export default function BottomFooter() {
+  
+  const [user, setUser] = UserAuth();
+  // console.log(user)
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // setState({ data: null, loading: false, error: null });
+    localStorage.removeItem("token");
+    setUser({
+      data: null,
+      error: null,
+      loading: false,
+    })
+    navigate("/");
+  };
+
   return (
     <div className="flex flex-col pt-4 mt-10">
       <div className="flex justify-center">
@@ -35,18 +52,22 @@ export default function BottomFooter() {
             <button className="text-gray-700 w-1/2 text-left py-2">
               <NavLink to="/about">About</NavLink>
             </button>
-            {!localStorage.getItem("token") && (
+            {!user.data && (
               <button className="text-gray-700 w-1/2 text-left py-2">
                 <NavLink to="/login">Login</NavLink>
               </button>
             )}
-            {localStorage.getItem("token") && (
-              <button className="text-gray-700 w-1/2 text-left py-2">
+            {user.data && (
+              <button
+                className="text-gray-700 w-1/2 text-left py-2"
+                onClick={handleLogout}
+              >
                 <NavLink to="/">Logout</NavLink>
               </button>
             )}
           </div>
         </div>
+        {}
         <div className="footerRight p-2 mt-4">Copyright © 2023. LisaWorks</div>
       </div>
     </div>
