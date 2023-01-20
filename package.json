@@ -8,7 +8,8 @@
     "client": "cd client && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm run build",
-    "dev": "concurrently \"cd server && npm run start\" \"cd client && npm run dev\""
+    "dev": "concurrently \"cd server && npm run start\" \"cd client && npm run dev\"",
+    "start": "concurrently \"cd server && npm run start\" \"cd client && npm run dev\""
   },
   "workspaces": [
     "client",
