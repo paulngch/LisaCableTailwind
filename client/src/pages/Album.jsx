@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 
 export default function Album() {
@@ -21,49 +21,6 @@ export default function Album() {
   useEffect(() => {
     fetchAlbum();
   }, []);
-
-  // const dbCables = albumPictures.map((ele, i) => (
-  //   <>
-  //     <div>{ele.desc}</div>
-  //     <img src={ele.url} />
-  //   </>
-  // ));
-  // const products = [
-  //   {
-  //     id: 1,
-  //     name: "Nomad Pouch",
-  //     href: "#",
-  //     price: "$50",
-  //     availability: "White and Black",
-  //     imageSrc:
-  //       "https://tailwindui.com/img/ecommerce-images/category-page-07-product-01.jpg",
-  //     imageAlt:
-  //       "White fabric pouch with white zipper, black zipper pull, and black elastic loop.",
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "Zip Tote Basket",
-  //     href: "#",
-  //     price: "$140",
-  //     availability: "Washed Black",
-  //     imageSrc:
-  //       "https://tailwindui.com/img/ecommerce-images/category-page-07-product-02.jpg",
-  //     imageAlt:
-  //       "Front of tote bag with washed black canvas body, black straps, and tan leather handles and accents.",
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "Medium Stuff Satchel",
-  //     href: "#",
-  //     price: "$220",
-  //     availability: "Blue",
-  //     imageSrc:
-  //       "https://tailwindui.com/img/ecommerce-images/category-page-07-product-03.jpg",
-  //     imageAlt:
-  //       "Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.",
-  //   },
-  //   // More products...
-  // ];
 
   return (
     <div className="bg-white">
@@ -97,16 +54,7 @@ export default function Album() {
                     {cable.desc}
                   </a>
                 </h3>
-                <div className="mt-3 flex flex-col items-center">
-                  {/* <p className="sr-only">{product.rating} out of 5 stars</p> */}
-                  {/* <div className="flex items-center">
-                    {[0, 1, 2, 3, 4].map((rating) => (
-                      
-                    ))}
-                  </div> */}
-                  {/* <p className="mt-1 text-sm text-gray-500">{product.reviewCount} reviews</p> */}
-                </div>
-                {/* <p className="mt-4 text-base font-medium text-gray-900">{product.price}</p> */}
+                <div className="mt-3 flex flex-col items-center"></div>
               </div>
             </div>
           ))}

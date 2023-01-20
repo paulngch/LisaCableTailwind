@@ -34,7 +34,7 @@ export default function BottomFooter() {
             <img className="max-h-11 p-2" src="/Instagram.png" />
           </div>
         </div>
-        <div className="footerCenter p-2">
+        <div className="footerCenter p-2 hidden lg:block">
           <div className=" text-xl font-semibold pt-2">Useful Links</div>
           <div>
             <button className="text-gray-700 w-1/2 text-left py-2">

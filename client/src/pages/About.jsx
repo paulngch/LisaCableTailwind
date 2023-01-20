@@ -11,9 +11,9 @@ export default function About() {
           />
         </div>
 
-        <div className="text-4xl p-2 m-2">Our Story</div>
-        <div className="text-4xl">|</div>
-        <div className="text-4xl m-2 p-2">LisaWorks</div>
+        <div className="text-4xl p-2 m-2 ml-24">Our Story</div>
+        <div className="text-4xl hidden lg:block">|</div>
+        <div className="text-4xl m-2 p-2 hidden lg:block">LisaWorks</div>
       </div>
       <div className="flex justify-center">
         <p className="storyContainer flex w-2/3 m-2 p-2 pt-6 text-lg">

@@ -11,9 +11,9 @@ export default function Charity() {
           />
         </div>
 
-        <div className="text-4xl p-2 m-2">Charity</div>
-        <div className="text-4xl">|</div>
-        <div className="text-4xl m-2 p-2">LisaWorks</div>
+        <div className="text-4xl p-2 m-2 ml-24">Charity</div>
+        <div className="text-4xl hidden lg:block">|</div>
+        <div className="text-4xl m-2 p-2 hidden lg:block">LisaWorks</div>
       </div>
       <div className="flex flex-col items-center">
         <p className="quoteContainer flex w-2/3 m-2 p-2 pt-6 text-lg">
