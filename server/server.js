@@ -1,6 +1,5 @@
-// require("dotenv").config();
-import * as dotenv from 'dotenv'
-dotenv.config()
+import * as dotenv from "dotenv";
+dotenv.config();
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
@@ -14,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 // Import
 const usersController = require("./controllers/usersController.js");
-const cablesController = require("./controllers/cablesController.js")
+const cablesController = require("./controllers/cablesController.js");
 
 //MIDDLEWARE
 app.use(express.json());
