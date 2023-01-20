@@ -59,7 +59,7 @@ export default function Login() {
           setPassword("");
           
         }
-        // navigate("/");
+        navigate("/");
       } catch (error) {
         setErrorMsg(error.loginData.data.error[0].msg);
         return errorMsg;

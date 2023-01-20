@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
       ],
     });
   }
-  // token = token.split(" ")[1];
+  token = token.split(" ")[1];
 
   try {
     let user = await JWT.verify(token, process.env.JWT_SECRET);

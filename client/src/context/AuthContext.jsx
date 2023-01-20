@@ -22,9 +22,8 @@ export const UserProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data: response } = await axios.get(
-        `${import.meta.env.VITE_BASE_URL}/auth/user"`
+        `${import.meta.env.VITE_BASE_URL}/auth/user`
       );
-      console.log(data);
       if (response.data.user) {
         setUser({
           data: {
@@ -37,7 +36,7 @@ export const UserProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error.message);
-      console.log(error.response.data.error);
+      // console.log(error.response.data.error);
       return setUser({
         data: null,
         error: error.response.data.error,

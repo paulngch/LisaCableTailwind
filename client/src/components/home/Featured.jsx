@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import mockData from "../../data/mockData";
 import FeaturedItem from "./FeaturedItem";
+import { Link as NavLink } from "react-router-dom";
 
 export default function Featured() {
   const [data, setData] = useState([]);
@@ -21,13 +22,13 @@ export default function Featured() {
         >
           Commissions
         </h2>
-        <a
-          href="#"
+        <button
+          // href="#"
           className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
         >
-          View all
+          <NavLink to="/album">View all</NavLink>
           <span aria-hidden="true"> &rarr;</span>
-        </a>
+        </button>
       </div>
 
       <div className="mt-4 flow-root">
