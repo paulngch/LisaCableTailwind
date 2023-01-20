@@ -1,4 +1,6 @@
-require("dotenv").config();
+// require("dotenv").config();
+import * as dotenv from 'dotenv'
+dotenv.config()
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
