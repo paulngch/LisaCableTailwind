@@ -31,9 +31,9 @@ app.use("/api/cable", cablesController);
 //MONGO
 const mongoURI = process.env.SECRET_KEY;
 const db = mongoose.connection;
-// mongoose.set("runValidators", true); // here is your global setting
+mongoose.set("runValidators", true); // here is your global setting
 mongoose.set("strictQuery", false);
-// mongoose.set("debug", true);
+mongoose.set("debug", true);
 mongoose.connect(mongoURI);
 
 // Connection Error/Success
