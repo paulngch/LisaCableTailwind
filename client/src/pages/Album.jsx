@@ -1,5 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import axios from "axios";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 
 export default function Album() {
   const [albumPictures, setAlbumPictures] = useState([]);
@@ -25,7 +27,7 @@ export default function Album() {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl overflow-hidden sm:px-6 lg:px-8">
-        <h2 className="sr-only">Products</h2>
+        <h2 className="sr-only">Commissions</h2>
         <h2
           id="category-heading"
           className="text-2xl font-bold tracking-tight text-gray-900 my-10"
@@ -36,21 +38,22 @@ export default function Album() {
         <div className="-mx-px grid grid-cols-2 border-l border-gray-200 sm:mx-0 md:grid-cols-3 lg:grid-cols-4">
           {albumPictures.map((cable, index) => (
             <div
-              key={index}
+              key={`${index}-${cable.desc}`}
               className="group relative border-r border-b border-gray-200 p-4 sm:p-6"
             >
               <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
-                <img
-                  src={cable.url}
-                  alt={cable.desc}
-                  className="h-full w-full object-cover object-center"
-                />
+                <Zoom>
+                  <img
+                    src={cable.url}
+                    alt={cable.desc}
+                    className="h-full w-full object-cover object-center pointer-events-auto"
+                  />
+                </Zoom>
               </div>
               <div className="pt-10 pb-4 text-center">
                 <h3 className="text-sm font-medium text-gray-900">
                   <a>
-                    {/* href={product.href} */}
-                    <span aria-hidden="true" className="absolute inset-0" />
+                    {/* <span aria-hidden="true" className="absolute inset-0" /> */}
                     {cable.desc}
                   </a>
                 </h3>
