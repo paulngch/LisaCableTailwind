@@ -57,9 +57,7 @@ router.get("/",async (req, res) => {
       const command = new GetObjectCommand(getObjectParams);
       const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
       cable.imageUrl = url; 
-      // console.log(cable.imageUrl);
       cableUrlArray.push(cable.imageUrl);
-      // console.log(cableUrlArray);
       cableDescArray.push(cable.description);
     }
 
@@ -137,7 +135,6 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(500).json({ error });
   }
 
-  // res.send({});
 });
 
 //===============================
@@ -189,30 +186,4 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-//===============================
-//Pagination
-// router.get('/', async (req, res) => {
-//   // Destructing the parameters and giving them a default value
-//   let { limit = 1, page = 1, q } = req.query;
-
-//   // Convert Limit and Page to Strings
-//   // Good for pagination
-//   const limitRecords = parseInt(limit);
-//   const skip = (page -1) * limit;
-
-//   // Insert everyting into one 'Query' object and check if empty
-//   let query = {};
-//   if(q) {
-//     query = {$text: {$search: q}};
-//   }
-
-//   try {
-//     // Insert the 'Query' object add the Limit Record and Skip
-//     const cables = await Cable.find(query).limit(limitRecords).skip(skip);
-//     res.json({ page: page, limit:limitRecords, cables});
-//   } catch (err) {
-//     res.status(400).json( {message: err })
-//   }
-
-// })
 module.exports = router;

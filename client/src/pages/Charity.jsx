@@ -24,19 +24,26 @@ export default function Charity() {
           the cost of workmanship to be donated to a charity organisation of the
           clients' choice. *Proof of donation required
         </p>
-        <div className="quoteContainer flex w-2/3 m-2 p-2 pt-6 text-3xl bold">
-          Previous Beneficiaries
-        </div>
-        <p className="quoteContainer flex w-2/3 m-2 p-2 pb-6 mb-6 text-lg">
-          Here are some of the groups/organisations that previous clients have
-          donated to, in lieu of paying for workmanship.
-        </p>
-        <div className="charityLogoContainer flex flex-wrap h-32 justify-center space-x-10">
-          <img className="h-full p-3" src="/Picsbyhooman.png" />
-          <img className="h-full p-3" src="/ProjectLuni.png" />
-          <img className="h-full p-3 bg-slate-600" src="SOSDlogo.png" />
-          <img className="h-full p-8" src="touchlogo.png" />
-          <img className="h-full p-2" src="ACRES.png" />
+        <div className="flex-col text-lg hidden lg:block">
+          <div className="quoteContainer flex w-2/3 m-2 p-2 pt-6 text-3xl bold">
+            Previous Beneficiaries
+          </div>
+          <p className="quoteContainer flex w-2/3 m-2 p-2 pb-6 mb-6 text-lg">
+            Here are some of the groups/organisations that previous clients have
+            donated to, in lieu of paying for workmanship.
+          </p>
+          <div className="charityLogoContainer flex flex-wrap h-32 justify-center space-x-10">
+            <img className="h-full p-3" src="/Picsbyhooman.png" />
+            {/* <h3>Picsbyhooman</h3> */}
+            <img className="h-full p-3" src="/ProjectLuni.png" />
+            {/* <h3>ProjectLuni</h3> */}
+            <img className="h-full p-3 bg-slate-600" src="SOSDlogo.png" />
+            {/* <h3>Save-Our-Street-Dogs</h3> */}
+            <img className="h-full p-8" src="touchlogo.png" />
+            {/* <h3>Touch Community Services</h3> */}
+            <img className="h-full p-2" src="ACRES.png" />
+            {/* <h3>ACRES</h3> */}
+          </div>
         </div>
       </div>
     </>
