@@ -12,6 +12,7 @@ import Request from "./pages/Request";
 import SharedLayout from "./pages/SharedLayout";
 import UploadCable from "./adminpages/UploadCable";
 import AdminLayout from "./adminpages/AdminLayout";
+import Contact from "./pages/Contact";
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/pages/request" element={<Request />} />
             <Route path="/pages/charity" element={<Charity />} />
             <Route path="/pages/about" element={<About />} />
+            <Route path="/pages/contact" element={<Contact />} />
             <Route path="/error" element={<ErrorPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/loading" element={<LoadingOverlay />} />

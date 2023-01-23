@@ -4,6 +4,8 @@ const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.js");
+const sgMail = require('@sendgrid/mail');
+const sendGrid = require("./routes/sendGrid.js")
 
 const cors = require("cors");
 
@@ -27,6 +29,9 @@ app.use(morgan("dev"));
 app.use("/api/users", usersController);
 app.use("/auth", authRoutes);
 app.use("/api/cable", cablesController);
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+app.use(express.urlencoded({ extended: true }));
+app.use("/api/contact", sendGrid)
 
 //MONGO
 const mongoURI = process.env.SECRET_KEY;
