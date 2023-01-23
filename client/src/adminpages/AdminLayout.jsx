@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 
 import { Dialog, Menu, Transition } from "@headlessui/react";
 import {
@@ -29,13 +29,14 @@ const navigation = [
   { name: "Website", href: "#", icon: InboxIcon, current: false },
   { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
-const userNavigation = [{ name: "Sign out", href: "#" }];
+const userNavigation = [{ name: "Sign out" }];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Example() {
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [user, setUser] = UserAuth();
   const handleLogout = () => {
@@ -212,7 +213,7 @@ export default function Example() {
             </button>
             <div className="flex flex-1 justify-between px-4">
               <div className="flex flex-1">
-                <form className="flex w-full md:ml-0" action="#" method="GET">
+                {/* <form className="flex w-full md:ml-0" action="#" method="GET">
                   <label htmlFor="search-field" className="sr-only">
                     Search
                   </label>
@@ -231,7 +232,7 @@ export default function Example() {
                       name="search"
                     />
                   </div>
-                </form>
+                </form> */}
               </div>
               <div className="ml-4 flex items-center md:ml-6">
                 <button
@@ -264,16 +265,16 @@ export default function Example() {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {({ active }) => (
+                      {
                         <a
-                          href={userNavigation[0].href}
+                          //   href={userNavigation[0].href}
                           onClick={() => handleLogout()}
                           className="block px-4 py-2 text-sm text-gray-700"
                           //   )}
                         >
                           {userNavigation[0].name}
                         </a>
-                      )}
+                      }
                     </Menu.Items>
                   </Transition>
                 </Menu>

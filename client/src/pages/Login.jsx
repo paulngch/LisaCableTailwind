@@ -12,11 +12,19 @@ export default function Login() {
   const [user, setUser] = UserAuth();
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if (user) {
-      navigate("/admin");
-    }
-  },[])
+  // useEffect(()=>{
+  //   //Refer to AuthContext, this is
+  //   const token = localStorage.getItem("token")
+  //   if (token) {
+  //     axios.defaults.headers.common["authorization"] = `Bearer ${token}`;
+  //   }
+  //     navigate("/admin");
+
+  // },[])
+
+  useEffect(() => {
+    user.data && navigate("/admin");
+  }, []);
 
   // let data;
   const formik = useFormik({
@@ -125,8 +133,8 @@ export default function Login() {
               {errorMsg && <div className=" text-red-500">{errorMsg}</div>}
               {formik.touched.email && formik.errors.email ? (
                 <div>{formik.errors.email}</div>
-                // <div>{formik.errors.email}</div>
-              ) : null}
+              ) : // <div>{formik.errors.email}</div>
+              null}
               <br />
               <button
                 type="submit"
