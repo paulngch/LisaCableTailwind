@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -11,6 +11,12 @@ export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [user, setUser] = UserAuth();
   const navigate = useNavigate();
+
+  useEffect(()=>{
+    if (user) {
+      navigate("/admin");
+    }
+  },[])
 
   // let data;
   const formik = useFormik({
@@ -119,6 +125,7 @@ export default function Login() {
               {errorMsg && <div className=" text-red-500">{errorMsg}</div>}
               {formik.touched.email && formik.errors.email ? (
                 <div>{formik.errors.email}</div>
+                // <div>{formik.errors.email}</div>
               ) : null}
               <br />
               <button

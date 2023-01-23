@@ -112,6 +112,7 @@ router.post("/", upload.single("image"), async (req, res) => {
   console.log("req.body", req.body);
   console.log("req.file", req.file);
 
+  try {
   req.file.buffer;
   const imageName = randomImageName();
   const params = {
@@ -125,7 +126,6 @@ router.post("/", upload.single("image"), async (req, res) => {
   await s3.send(command);
 
   //creating cable from schema, sending to mongoDB
-  try {
     const cable = await Cable.create({
       description: req.body.description,
       image: imageName,
