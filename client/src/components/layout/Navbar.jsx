@@ -34,16 +34,16 @@ export default function Navbar() {
             <NavLink to="/">Home</NavLink>
           </button>
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
-            <NavLink to="/album">Album</NavLink>
+            <NavLink to="/pages/album">Album</NavLink>
           </button>
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
-            <NavLink to="/request">Request</NavLink>
+            <NavLink to="/pages/request">Request</NavLink>
           </button>
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
-            <NavLink to="/charity">Charity</NavLink>
+            <NavLink to="/pages/charity">Charity</NavLink>
           </button>
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="/pages/about">About</NavLink>
           </button>
         </div>
       </div>

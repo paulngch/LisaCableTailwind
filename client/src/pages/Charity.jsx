@@ -7,7 +7,7 @@ export default function Charity() {
         <div>
           <img
             className="h-44 ml-40 hidden lg:block"
-            src="charityhearthand.png"
+            src="/charityhearthand.png"
           />
         </div>
 
@@ -37,11 +37,11 @@ export default function Charity() {
             {/* <h3>Picsbyhooman</h3> */}
             <img className="h-full p-3" src="/ProjectLuni.png" />
             {/* <h3>ProjectLuni</h3> */}
-            <img className="h-full p-3 bg-slate-600" src="SOSDlogo.png" />
+            <img className="h-full p-3 bg-slate-600" src="/SOSDlogo.png" />
             {/* <h3>Save-Our-Street-Dogs</h3> */}
-            <img className="h-full p-8" src="touchlogo.png" />
+            <img className="h-full p-8" src="/touchlogo.png" />
             {/* <h3>Touch Community Services</h3> */}
-            <img className="h-full p-2" src="ACRES.png" />
+            <img className="h-full p-2" src="/ACRES.png" />
             {/* <h3>ACRES</h3> */}
           </div>
         </div>

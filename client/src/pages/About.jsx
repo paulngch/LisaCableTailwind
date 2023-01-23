@@ -7,7 +7,7 @@ export default function About() {
         <div>
           <img
             className="h-44 ml-40 hidden lg:block "
-            src="feathertippenlogo.png"
+            src="/feathertippenlogo.png"
           />
         </div>
 

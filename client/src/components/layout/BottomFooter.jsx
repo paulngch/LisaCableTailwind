@@ -41,16 +41,16 @@ export default function BottomFooter() {
               <NavLink to="/">Home</NavLink>
             </button>
             <button className="text-gray-700 w-1/2 text-left py-2">
-              <NavLink to="/album">Album</NavLink>
+              <NavLink to="/pages/album">Album</NavLink>
             </button>
             <button className="text-gray-700 w-1/2 text-left py-2">
-              <NavLink to="/request">Request</NavLink>
+              <NavLink to="/pages/request">Request</NavLink>
             </button>
             <button className="text-gray-700 w-1/2 text-left py-2">
-              <NavLink to="/charity">Charity</NavLink>
+              <NavLink to="/pages/charity">Charity</NavLink>
             </button>
             <button className="text-gray-700 w-1/2 text-left py-2">
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/pages/about">About</NavLink>
             </button>
             {!user.data && (
               <button className="text-gray-700 w-1/2 text-left py-2">

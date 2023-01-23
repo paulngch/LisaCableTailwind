@@ -15,10 +15,10 @@ export default function App() {
         <Routes>
           <Route path="/" element={<SharedLayout />}>
             <Route index element={<Home />} />
-            <Route path="/album" element={<Album />} />
-            <Route path="/request" element={<Request />} />
-            <Route path="/charity" element={<Charity />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/pages/album" element={<Album />} />
+            <Route path="/pages/request" element={<Request />} />
+            <Route path="/pages/charity" element={<Charity />} />
+            <Route path="/pages/about" element={<About />} />
             <Route path="/login" element={<Login />} />
             <Route path="/uploadcable" element={<UploadCable />} />
           </Route>
