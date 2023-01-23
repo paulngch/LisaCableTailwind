@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
 
  
   if (!token) {
-    return res.status(403).json({
+    return res.status(401).json({
       data: "",
       error: [
         {
@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
     // return res.status(200).json({ msg: "success" });
     next();
   } catch (error) {
-    return res.status(403).json({
+    return res.status(401).json({
       data: "",
       error: [
         {

@@ -12,7 +12,7 @@ export default function Login() {
   const [user, setUser] = UserAuth();
   const navigate = useNavigate();
 
-  let data;
+  // let data;
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -57,11 +57,12 @@ export default function Login() {
           // On Success
           setEmail("");
           setPassword("");
-          
+
+          navigate("/admin");
         }
-        navigate("/");
       } catch (error) {
-        setErrorMsg(error.loginData.data.error[0].msg);
+        //returning of "Unauthorised"
+        setErrorMsg(error.response.request.statusText);
         return errorMsg;
       }
     },
