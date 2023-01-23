@@ -16,8 +16,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // app.post("/", (req, res) => {
 //   console.log(req);
 //   const msg = {
-//     to: `2Payment@protonmail.com`, // recipient
-//     from: "2Payment@protonmail.com", //verified sender
+//     to: ``, // recipient
+//     from: "", //verified sender
 //     subject: req.body.subject,
 //     text: `Message from ${req.body.email}:\n${req.body.message}`,
 //   };
@@ -30,8 +30,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 // });
 
 const msg = {
-    to: `2Payment@protonmail.com`, // recipient
-    from: "2Payment@protonmail.com", //verified sender
+    to: `${process.env.SENDGRID_EMAIL}`, // recipient
+    from: `${process.env.SENDGRID_EMAIL}`, //verified sender
     subject: 'Sending with SendGrid is Fun',
     text: 'and easy to do anywhere, even with Node.js',
     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
