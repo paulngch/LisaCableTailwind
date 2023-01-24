@@ -12,7 +12,7 @@ export default function Navbar() {
     >
       <div
      
-        className="logo flex justify-center items-center mt-3  max-w-[10%] "
+        className="logo flex justify-center items-center mt-3  max-w-[8%] "
       >
         <img
           className="hidden h-full w-full max-h-32 lg:block"
@@ -29,7 +29,7 @@ export default function Navbar() {
         >
           <img className="flex h-20" src="/LisaWorksword.png" />
         </div>
-        <div className="buttonContainer flex">
+        {/* <div className="buttonContainer flex">
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
             <NavLink to="/">Home</NavLink>
           </button>
@@ -45,7 +45,7 @@ export default function Navbar() {
           <button className="text-gray-900 border-transparent flex-1 whitespace-nowrap border-b-2 py-4 px-1 text-base font-medium">
             <NavLink to="/pages/about">About</NavLink>
           </button>
-        </div>
+        </div> */}
       </div>
       <div
 
