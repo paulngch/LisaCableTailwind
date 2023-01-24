@@ -28,6 +28,7 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [feedbackType, setFeedbackType] = useState(publishingOptions[0].title);
 
   const CustomInputComponent = (props) => <textarea {...props} />;
 
@@ -48,6 +49,8 @@ export default function Contact() {
         }}
         validationSchema={ContactFormSchema}
         onSubmit={(values) => {
+        //   console.log(feedbackType, "FBT");
+          values.feedback = feedbackType
           console.log(values);
         }}
       >

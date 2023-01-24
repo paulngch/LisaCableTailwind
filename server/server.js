@@ -1,11 +1,11 @@
 const express = require("express");
-require('dotenv').config()
+require("dotenv").config();
 const morgan = require("morgan");
 const path = require("path");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth.js");
-const sgMail = require('@sendgrid/mail');
-const sendGrid = require("./routes/sendGrid.js")
+const sgMail = require("@sendgrid/mail");
+const sendGrid = require("./routes/sendGrid.js");
 
 const cors = require("cors");
 
@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 3000;
 // Import
 const usersController = require("./controllers/usersController.js");
 const cablesController = require("./controllers/cablesController.js");
+const contactFormController = require("./controllers/contactFormController.js");
 
 //MIDDLEWARE
 app.use(express.json());
@@ -31,7 +32,8 @@ app.use("/auth", authRoutes);
 app.use("/api/cable", cablesController);
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/contact", sendGrid)
+app.use("/api/contact", sendGrid);
+app.use("/api/contactform", contactFormController);
 
 //MONGO
 const mongoURI = process.env.SECRET_KEY;

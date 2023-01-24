@@ -25,10 +25,10 @@ export default function UploadCable() {
         formData
       );
       console.log(res);
-      return setShow(true);
+      return setShow(true); //show SuccessMsg
     } catch (error) {
       console.log(error.message);
-      return setOpen(true);
+      return setOpen(true); //open FailMsg
     }
   };
 
