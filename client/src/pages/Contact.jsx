@@ -4,6 +4,7 @@ import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import SubmitSuccess from "../components/forms/SubmitSuccess";
 
 const publishingOptions = [
   { title: "Request", description: "For custom cable requests", current: true },
@@ -22,6 +23,8 @@ const ContactFormSchema = Yup.object().shape({
 
 export default function Contact() {
   const [selected, setSelected] = useState(publishingOptions[0]);
+
+  const [open, setOpen] = useState(false);
   //================CHANGE EMAIL HERE=================
   const contactUsEmail = "support@LisaWorks.com";
   //==================================================
@@ -315,6 +318,7 @@ export default function Contact() {
           </div>
         )}
       </Formik>
+      <SubmitSuccess open={open} setOpen={setOpen}/>
     </>
   );
 }

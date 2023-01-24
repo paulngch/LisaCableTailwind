@@ -9,7 +9,7 @@ const ContactForm = require("../models/contactForm");
 router.post("/", async (req, res) => {
   console.log("req.body", req.body);
   try {
-    //creating cable from schema, sending to mongoDB
+    //creating form from schema, sending to mongoDB
     const contactForm = await ContactForm.create(req.body);
     res.status(201).json(contactForm);
   } catch (error) {

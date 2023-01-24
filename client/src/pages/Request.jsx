@@ -1,5 +1,5 @@
 import React from "react";
-import RequestForm from "../components/request/RequestForm";
+import RequestForm from "../components/forms/RequestForm";
 
 export default function Request() {
   return (

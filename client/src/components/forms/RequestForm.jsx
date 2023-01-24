@@ -1,4 +1,3 @@
-import React from "react";
 import { Link as NavLink } from "react-router-dom";
 import designData from "../../data/designData";
 import { Formik, Field, Form } from "formik";
