@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3000;
 const usersController = require("./controllers/usersController.js");
 const cablesController = require("./controllers/cablesController.js");
 const contactFormController = require("./controllers/contactFormController.js");
+const requestFormController = require("./controllers/requestFormController.js");
 
 //MIDDLEWARE
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use("/api/cable", cablesController);
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/contact", sendGrid);
 app.use("/api/contactform", contactFormController);
+app.use("/api/requestform", requestFormController);
 
 //MONGO
 const mongoURI = process.env.SECRET_KEY;

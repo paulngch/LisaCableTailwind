@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const contactFormSchema = new mongoose.Schema(
+const requestFormSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
     email: {
@@ -10,12 +10,17 @@ const contactFormSchema = new mongoose.Schema(
       required: [true, "can't be blank"],
       index: true,
     },
-    feedback: { type: String, enum: ["Request", "Feedback"] },
+    contact: { type: Number, required: true, trim: true },
+    hostUsb: { type: String, enum: ["A", "C"] },
+    deviceUsb: { type: String, enum: ["C", "others"] },
+    design: { type: String, enum: ["straight", "braided"] },
     message: { type: String, trim: true },
+    hostUsb: { type: String, enum: ["singapore", "international"] },
+    discord: { type: String, trim: true },
   },
   { timestamps: true }
 );
 
-const ContactForm = mongoose.model("ContactForm", contactFormSchema);
+const RequestForm = mongoose.model("RequestForm", requestFormSchema);
 
-module.exports = ContactForm;
+module.exports = RequestForm;

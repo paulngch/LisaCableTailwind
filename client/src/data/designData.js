@@ -1,7 +1,7 @@
 const designData = [
   {
     name: "black",
-    design:"braid",
+    design:"braided",
     type: "Braided Cable",
     imageUrl: "/brownbraidmulticolor.jpg",
     id: 1,
