@@ -28,7 +28,7 @@ const materials = [
   },
 ];
 const callsToAction = [
-  { name: "Contact Us", href: "#", icon: ChatBubbleBottomCenterIcon },
+  { name: "Contact Us", href: "/pages/contact", icon: ChatBubbleBottomCenterIcon },
 ];
 const info = [
   {

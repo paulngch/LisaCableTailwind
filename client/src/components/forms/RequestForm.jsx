@@ -19,6 +19,9 @@ export default function RequestForm() {
     e.preventDefault();
     console.log("testhandlesubmit");
   };
+
+  const CustomInputComponent = (props) => <textarea {...props} />;
+
   return (
     <>
       <Formik
@@ -26,6 +29,12 @@ export default function RequestForm() {
           name: "",
           email: "",
           contact: "",
+          design: "",
+          country: "Singapore",
+          discord: "",
+          comments: "",
+          hostUsb: "A",
+          deviceUsb: "C",
         }}
         validationSchema={RequestFormSchema}
         onSubmit={(values) => {
@@ -77,10 +86,11 @@ export default function RequestForm() {
                               </Zoom>
                             </div>
                             <div className="ml-3 flex pl-2 items-center ">
-                              <input
+                              <Field
                                 id={`design-${design.id}`}
-                                name={`design`}
+                                name="design"
                                 type="radio"
+                                value={`${design.design}`}
                                 required="required"
                                 className=" h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                               />
@@ -99,12 +109,12 @@ export default function RequestForm() {
                       Comments
                     </label>
                     <div className="mt-1">
-                      <textarea
+                      <Field
+                        as={CustomInputComponent}
                         id="comments"
                         name="comments"
                         rows={3}
                         className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        defaultValue={""}
                       />
                     </div>
                     <p className="mt-2 text-sm text-gray-500">
@@ -120,15 +130,16 @@ export default function RequestForm() {
                       >
                         Host-side USB
                       </label>
-                      <select
-                        id="host-usb"
-                        name="host-usb"
+                      <Field
+                        as="select"
+                        id="hostUsb"
+                        name="hostUsb"
                         required="required"
                         className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       >
-                        <option>USB-A</option>
-                        <option>USB-C</option>
-                      </select>
+                        <option value="A">USB-A</option>
+                        <option value="C">USB-C</option>
+                      </Field>
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                       <label
@@ -137,15 +148,16 @@ export default function RequestForm() {
                       >
                         Device-side USB
                       </label>
-                      <select
-                        id="device-usb"
-                        name="device-usb"
+                      <Field
+                        as="select"
+                        id="deviceUsb"
+                        name="deviceUsb"
                         required="required"
                         className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       >
-                        <option>USB-C</option>
-                        <option>Others</option>
-                      </select>
+                        <option value="C">USB-C</option>
+                        <option value="others">Others</option>
+                      </Field>
                     </div>
                   </div>
                 </div>
@@ -200,11 +212,11 @@ export default function RequestForm() {
                           Optional
                         </span>
                       </div>
-                      <input
+                      <Field
                         placeholder="e.g. TinyFox#20"
                         type="text"
-                        name="discord-name"
-                        id="discord-name"
+                        name="discord"
+                        id="discord"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                       />
                     </div>
@@ -257,14 +269,15 @@ export default function RequestForm() {
                       >
                         Country
                       </label>
-                      <select
+                      <Field
                         id="country"
+                        as="select"
                         name="country"
                         className="mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       >
-                        <option>Singapore</option>
-                        <option>Others</option>
-                      </select>
+                        <option value="Singapore">Singapore</option>
+                        <option value="International">International</option>
+                      </Field>
                     </div>
                   </div>
                 </div>
