@@ -50,9 +50,9 @@ db.on("error", (err) => console.log(err.message + " is mongod not running?"));
 db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve("..", "client", "dist", "index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("..", "client", "dist", "index.html"));
+});
 
 app.get("/api/", (req, res) => {
   res.json({ msg: "Hello World! It's the beginning of something exciting!" });
