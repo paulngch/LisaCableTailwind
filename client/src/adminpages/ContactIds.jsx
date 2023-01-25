@@ -28,7 +28,7 @@ export default function ContactIds() {
   };
   const { id } = useParams();
   const [formData, setFormData] = useState({});
-
+  const [activeState, setActiveState] = useState();
   //==================
   //Fetching contactForm with _id = id
   const fetchContactForm = async () => {
@@ -36,7 +36,9 @@ export default function ContactIds() {
       const response = await axios.get(
         `${import.meta.env.VITE_BASE_URL}/api/contactform/${id}`
       );
-      //   console.log(response.data);
+      console.log(response.data);
+      // console.log(response.data.active)
+      setActiveState(response.data.active);
       setFormData(response.data);
     } catch (error) {
       console.log(error.message);
@@ -45,13 +47,13 @@ export default function ContactIds() {
 
   useEffect(() => {
     fetchContactForm();
-  }, []);
+  }, [open,activeState]);
 
   return (
     <>
       <Formik
         initialValues={{
-          active: formData.active,
+          active: activeState,
           adminComments: formData.adminComments,
         }}
         onSubmit={async (values, { resetForm }) => {
@@ -97,7 +99,6 @@ export default function ContactIds() {
                 ) : (
                   <></>
                 )}
-                
               </div>
 
               <div className="pt-8">
@@ -215,6 +216,14 @@ export default function ContactIds() {
                     Commentary or updates.
                   </p>
                 </div>
+
+                <label className="block text-sm font-medium text-orange-700">
+                  <>
+                    Active
+                    <Field type="checkbox" name="active" className="m-6" />
+                  </>
+                </label>
+
                 <div className="mt-6">
                   <div className="sm:col-span-6 mt-4">
                     <label
@@ -233,7 +242,7 @@ export default function ContactIds() {
                         defaultValue={formData.adminComments}
                       />
                     </div>
-                    <p className="mt-2 text-sm text-gray-500">{/*  */}</p>
+                    <p className="mt-2 text-sm text-gray-500"></p>
                   </div>
                 </div>
               </div>

@@ -13,7 +13,7 @@ const multer = require("multer");
 const crypto = require("crypto");
 const Cable = require("../models/cable");
 
-const checkAuth= require("../middleware/checkAuth")
+const checkAuth = require("../middleware/checkAuth");
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -38,14 +38,16 @@ const s3 = new S3Client({
 //Declaring variables to be mapped after exporting
 let cableUrlArray = [];
 let cableDescArray = [];
+let cableIdArray = [];
 let cableListObject = [{}];
 
 //===============================
 //GET request for ALL* images in the album
-router.get("/",async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     cableUrlArray = [];
     cableDescArray = [];
+    cableIdArray = [];
     cableListObject = [];
     const cables = await Cable.find().exec();
     for (let cable of cables) {
@@ -56,15 +58,20 @@ router.get("/",async (req, res) => {
 
       const command = new GetObjectCommand(getObjectParams);
       const url = await getSignedUrl(s3, command, { expiresIn: 3600 });
-      cable.imageUrl = url; 
+      cable.imageUrl = url;
       cableUrlArray.push(cable.imageUrl);
       cableDescArray.push(cable.description);
+      cableIdArray.push(cable._id);
     }
 
     //==================
     //Combining both arrays to give single array with key:value pair
     for (let i = 0; i < cableDescArray.length; i++) {
-      cableListObject.push({ desc: cableDescArray[i], url: cableUrlArray[i] });
+      cableListObject.push({
+        desc: cableDescArray[i],
+        url: cableUrlArray[i],
+        id: cableIdArray[i],
+      });
     }
 
     res.status(201).send(cableListObject);
@@ -113,19 +120,19 @@ router.post("/", upload.single("image"), async (req, res) => {
   console.log("req.file", req.file);
 
   try {
-  req.file.buffer;
-  const imageName = randomImageName();
-  const params = {
-    Bucket: bucketName,
-    Key: imageName,
-    Body: req.file.buffer,
-    ContentType: req.file.mimetype,
-  };
+    req.file.buffer;
+    const imageName = randomImageName();
+    const params = {
+      Bucket: bucketName,
+      Key: imageName,
+      Body: req.file.buffer,
+      ContentType: req.file.mimetype,
+    };
 
-  const command = new PutObjectCommand(params);
-  await s3.send(command);
+    const command = new PutObjectCommand(params);
+    await s3.send(command);
 
-  //creating cable from schema, sending to mongoDB
+    //creating cable from schema, sending to mongoDB
     const cable = await Cable.create({
       description: req.body.description,
       image: imageName,
@@ -134,7 +141,6 @@ router.post("/", upload.single("image"), async (req, res) => {
   } catch (error) {
     res.status(500).json({ error });
   }
-
 });
 
 //===============================
