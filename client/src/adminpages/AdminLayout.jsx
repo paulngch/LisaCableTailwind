@@ -24,6 +24,12 @@ const navigation = [
     icon: FolderIcon,
     current: false,
   },
+  {
+    name: "Cable Album",
+    href: "/admin/cablealbum",
+    icon: FolderIcon,
+    current: false,
+  },
   { name: "UL Paracord", href: "#", icon: FolderIcon, current: false },
   { name: "UL Connector", href: "#", icon: CalendarIcon, current: false },
   {

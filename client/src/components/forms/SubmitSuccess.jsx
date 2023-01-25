@@ -44,13 +44,13 @@ export default function SubmitSuccess({open, setOpen}) {
                         as="h3"
                         className="text-lg font-medium leading-6 text-gray-900"
                       >
-                        Request sent
+                        Submit success
                       </Dialog.Title>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          Thank you for your patience while we go through your
+                          {/* Thank you for your patience while we go through your
                           feedback/request. If you are expecting a quote, we
-                          will get back to you as soon as possible.
+                          will get back to you as soon as possible. */}
                         </p>
                       </div>
                     </div>

@@ -14,6 +14,8 @@ import UploadCable from "./adminpages/UploadCable";
 import AdminLayout from "./adminpages/AdminLayout";
 import Contact from "./pages/Contact";
 import AdminContact from "./adminpages/AdminContact";
+import ContactIds from "./adminpages/ContactIds";
+import AdminCableAlbum from "./adminpages/AdminCableAlbum";
 
 export default function App() {
   return (
@@ -36,7 +38,11 @@ export default function App() {
               {/* <Route path="/admin" element={<AdminHome />} /> */}
               <Route index element={<AdminHome />} />
               <Route path="/admin/uploadcable" element={<UploadCable />} />
-              <Route path="/admin/contact" element={<AdminContact />} />
+              <Route path="/admin/cablealbum" element={<AdminCableAlbum />} />
+              <Route path="/admin/contact/" element={<AdminContact />} />
+              <Route path="/admin/contact/:id" element={<ContactIds />} />
+
+             
             </Route>
           </Route>
         </Routes>

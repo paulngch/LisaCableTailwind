@@ -131,7 +131,7 @@ export default function UploadCable() {
         className="pointer-events-none mt-14 fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
       >
         <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
-          {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
+          {/* NOTIFICATION AREA BELOW */}
           <Transition
             show={show}
             as={Fragment}
