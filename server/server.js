@@ -28,7 +28,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
   })
 );
-// app.use(cors());
 app.use(express.static("../client/dist"))
 app.use(morgan("dev"));
 app.use("/api/users", usersController);
