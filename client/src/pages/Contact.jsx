@@ -53,12 +53,16 @@ export default function Contact() {
         }}
         validationSchema={ContactFormSchema}
         onSubmit={async (values, { resetForm }) => {
-        //   console.log(values);
+          // console.log(values);
+          const updatedValues = { ...values, feedback: feedbackType };
+          // console.log("UPDATED VALs", updatedValues);
+          //===========================================
           //TRY CATCH for Axios to post to mongoDB
+          //============
           try {
             const res = await axios.post(
               `${import.meta.env.VITE_BASE_URL}/api/contactform`,
-              values
+              updatedValues
             );
             resetForm();
             return setOpen(true); //open Submit-success Msg
@@ -109,10 +113,7 @@ export default function Contact() {
                           aria-hidden="true"
                           onClick={(e) => handleSubmit(e)}
                         />
-                        <span
-                          className="ml-3"
-                          onClick={() => console.log("CLICKED2")}
-                        >
+                        <span className="ml-3" onClick={(e) => handleSubmit(e)}>
                           {contactUsEmail}
                         </span>
                       </div>
@@ -217,6 +218,9 @@ export default function Contact() {
                                 {publishingOptions.map((option) => (
                                   <Listbox.Option
                                     key={option.title}
+                                    onClick={() =>
+                                      setFeedbackType(option.title)
+                                    }
                                     className={({ active }) =>
                                       classNames(
                                         active

@@ -26,8 +26,14 @@ const navigation = [
   },
   { name: "UL Paracord", href: "#", icon: FolderIcon, current: false },
   { name: "UL Connector", href: "#", icon: CalendarIcon, current: false },
-  { name: "Website", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
+  {
+    name: "Contact Forms",
+    href: "/admin/contact",
+    icon: InboxIcon,
+    current: false,
+  },
+  { name: "Request Forms", href: "#", icon: InboxIcon, current: false },
+  // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 const userNavigation = [{ name: "Sign out" }];
 
