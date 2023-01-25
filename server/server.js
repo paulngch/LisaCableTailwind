@@ -19,6 +19,7 @@ const contactFormController = require("./controllers/contactFormController.js");
 const requestFormController = require("./controllers/requestFormController.js");
 
 //MIDDLEWARE
+
 app.use(express.json());
 app.use(
   cors({
@@ -27,6 +28,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "x-access-token"],
   })
 );
+// app.use(cors());
+app.use(express.static("../client/dist"))
 app.use(morgan("dev"));
 app.use("/api/users", usersController);
 app.use("/auth", authRoutes);
@@ -50,14 +53,13 @@ db.on("error", (err) => console.log(err.message + " is mongod not running?"));
 db.on("connected", () => console.log("mongo connected: ", mongoURI));
 db.on("disconnected", () => console.log("mongo disconnected"));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve("..", "client", "dist", "index.html"));
-});
-
 app.get("/api/", (req, res) => {
   res.json({ msg: "Hello World! It's the beginning of something exciting!" });
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve("..", "client", "dist", "index.html"));
+});
 //Listener
 db.once("open", () => {
   console.log("connected to mongo", mongoURI);
