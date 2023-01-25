@@ -7,7 +7,7 @@ const ContactForm = require("../models/contactForm");
 //===============================
 //Uploading (POST) contactForm to mongoDB
 router.post("/", async (req, res) => {
-  console.log("req.body", req.body);
+  // console.log("req.body", req.body);
   try {
     //creating form from schema, sending to mongoDB
     const contactForm = await ContactForm.create(req.body);

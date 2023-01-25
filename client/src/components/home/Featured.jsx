@@ -26,7 +26,7 @@ export default function Featured() {
           // href="#"
           className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
         >
-          <NavLink to="/album">View all</NavLink>
+          <NavLink to="/pages/album">View all</NavLink>
           <span aria-hidden="true"> &rarr;</span>
         </button>
       </div>

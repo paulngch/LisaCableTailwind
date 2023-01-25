@@ -32,7 +32,7 @@ export default function SpecsContainer() {
         <div></div>
       </div>
       <button className="mt-16 bg-pink-600 w-36">
-        <NavLink to="/request">Request a quote</NavLink>
+        <NavLink to="/pages/request">Request a quote</NavLink>
       </button>
     </div>
   );

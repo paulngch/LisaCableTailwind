@@ -32,9 +32,6 @@ export default function UploadCable() {
     }
   };
 
-  // const successFunction = () => {
-  //   success ? <div className="mx-4 text-2xl">Success</div> : <></>;
-  // };
 
   return (
     <>

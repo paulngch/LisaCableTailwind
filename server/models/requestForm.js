@@ -14,8 +14,8 @@ const requestFormSchema = new mongoose.Schema(
     hostUsb: { type: String, enum: ["A", "C"] },
     deviceUsb: { type: String, enum: ["C", "others"] },
     design: { type: String, enum: ["straight", "braided"] },
-    message: { type: String, trim: true },
-    hostUsb: { type: String, enum: ["singapore", "international"] },
+    comments: { type: String, trim: true },
+    country: { type: String, enum: ["singapore", "international"] },
     discord: { type: String, trim: true },
   },
   { timestamps: true }

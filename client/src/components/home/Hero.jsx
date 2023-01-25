@@ -34,7 +34,7 @@ export default function Hero() {
                   href="#"
                   className="mt-8 block w-full rounded-md border border-transparent bg-white py-3 px-8 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto"
                 >
-                  <NavLink to="/album">See Album</NavLink>
+                  <NavLink to="/pages/album">See Album</NavLink>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Formik, Field, Form } from "formik";
+import axios from "axios";
 import * as Yup from "yup";
 import SubmitSuccess from "../components/forms/SubmitSuccess";
 
@@ -24,7 +25,7 @@ const ContactFormSchema = Yup.object().shape({
 export default function Contact() {
   const [selected, setSelected] = useState(publishingOptions[0]);
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); //This is for success MSG
   //================CHANGE EMAIL HERE=================
   const contactUsEmail = "support@LisaWorks.com";
   //==================================================
@@ -51,10 +52,19 @@ export default function Contact() {
           message: "",
         }}
         validationSchema={ContactFormSchema}
-        onSubmit={(values) => {
-        //   console.log(feedbackType, "FBT");
-          values.feedback = feedbackType
-          console.log(values);
+        onSubmit={async (values, { resetForm }) => {
+        //   console.log(values);
+          //TRY CATCH for Axios to post to mongoDB
+          try {
+            const res = await axios.post(
+              `${import.meta.env.VITE_BASE_URL}/api/contactform`,
+              values
+            );
+            resetForm();
+            return setOpen(true); //open Submit-success Msg
+          } catch (error) {
+            return console.log(error.message);
+          }
         }}
       >
         {({ errors, touched }) => (
@@ -112,11 +122,7 @@ export default function Contact() {
               </div>
               <div className="bg-white py-16 px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                 <div className="mx-auto max-w-lg lg:max-w-none">
-                  <Form
-                    // action={`${import.meta.env.VITE_BASE_URL}/api/contact`}
-                    // method="POST"
-                    className="grid grid-cols-1 gap-y-6"
-                  >
+                  <Form id="contactForm" className="grid grid-cols-1 gap-y-6">
                     <div>
                       <label htmlFor="full-name" className="sr-only">
                         Name
@@ -299,17 +305,6 @@ export default function Contact() {
                       <br />
                       <br />
                       <br />
-                      <button
-                        type="button"
-                        onClick={() => {
-                          console.log(name);
-                          console.log(email);
-                          console.log(selected.title);
-                          console.log(message);
-                        }}
-                      >
-                        LOG
-                      </button>
                     </div>
                   </Form>
                 </div>
@@ -318,7 +313,7 @@ export default function Contact() {
           </div>
         )}
       </Formik>
-      <SubmitSuccess open={open} setOpen={setOpen}/>
+      <SubmitSuccess open={open} setOpen={setOpen} />
     </>
   );
 }
