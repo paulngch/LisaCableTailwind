@@ -3,7 +3,7 @@ import React from "react";
 export default function Charity() {
   return (
     <>
-      <div className=" charityHeader flex bg-slate-400 h-44 items-center ">
+      <div className=" charityHeader flex  h-44 items-center ">
         <div>
           <img
             className="h-44 ml-40 hidden lg:block"

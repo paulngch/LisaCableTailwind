@@ -3,7 +3,7 @@ import React from "react";
 export default function About() {
   return (
     <>
-      <div className=" aboutHeader flex bg-slate-400 h-44 items-center ">
+      <div className=" aboutHeader flex  h-44 items-center">
         <div>
           <img
             className="h-44 ml-40 hidden lg:block "
