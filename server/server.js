@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Import
-const usersController = require("./controllers/usersController.js");
+// const usersController = require("./controllers/usersController.js");
 const cablesController = require("./controllers/cablesController.js");
 const contactFormController = require("./controllers/contactFormController.js");
 const requestFormController = require("./controllers/requestFormController.js");
@@ -30,7 +30,7 @@ app.use(
 );
 app.use(express.static("../client/dist"))
 app.use(morgan("dev"));
-app.use("/api/users", usersController);
+// app.use("/api/users", usersController);
 app.use("/auth", authRoutes);
 app.use("/api/cable", cablesController);
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
