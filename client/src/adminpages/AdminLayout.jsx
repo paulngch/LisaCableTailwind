@@ -30,6 +30,7 @@ const navigation = [
     icon: FolderIcon,
     current: false,
   },
+
   { name: "UL Paracord", href: "#", icon: FolderIcon, current: false },
   { name: "UL Connector", href: "#", icon: CalendarIcon, current: false },
   {
@@ -38,7 +39,7 @@ const navigation = [
     icon: InboxIcon,
     current: false,
   },
-  { name: "Request Forms", href: "#", icon: InboxIcon, current: false },
+  { name: "Request Forms", href: "/admin/request", icon: InboxIcon, current: false },
   // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 const userNavigation = [{ name: "Sign out" }];

@@ -16,6 +16,8 @@ import Contact from "./pages/Contact";
 import AdminContact from "./adminpages/AdminContact";
 import ContactIds from "./adminpages/ContactIds";
 import AdminCableAlbum from "./adminpages/AdminCableAlbum";
+import AdminRequest from "./adminpages/AdminRequest";
+import RequestIds from "./adminpages/RequestIds";
 
 export default function App() {
   return (
@@ -41,8 +43,8 @@ export default function App() {
               <Route path="/admin/cablealbum" element={<AdminCableAlbum />} />
               <Route path="/admin/contact/" element={<AdminContact />} />
               <Route path="/admin/contact/:id" element={<ContactIds />} />
-
-             
+              <Route path="/admin/request/" element={<AdminRequest />} />
+              <Route path="/admin/request/:id" element={<RequestIds />} />
             </Route>
           </Route>
         </Routes>

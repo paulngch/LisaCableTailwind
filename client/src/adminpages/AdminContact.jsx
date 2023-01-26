@@ -2,41 +2,6 @@ import { useState, useEffect } from "react";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
 import axios from "axios";
 
-// const people = [
-//   {
-//     name: "Jane Cooper",
-//     title: "Regional Paradigm Technician",
-//     role: "Admin",
-//     email: "janecooper@example.com",
-//     telephone: "+1-202-555-0170",
-//     imageUrl:
-//       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-//   },
-// ];
-
-// const tempContact = [
-//   {
-//     _id: "63cf6f98d478e5a001a6971c",
-//     name: "Ellie",
-//     email: "ellie@gmail.com",
-//     feedback: "Request",
-//     message: "Hello this a request for sky-blue cable",
-//     active: true
-//   },
-// ];
-
-const people = [
-  {
-    name: "Lindsay Walton",
-    title: "Front-end Developer",
-    department: "Optimization",
-    email: "lindsay.walton@example.com",
-    role: "Member",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  },
-  // More people...
-];
 
 export default function AdminContact() {
   const [contactList, setContactList] = useState([]);

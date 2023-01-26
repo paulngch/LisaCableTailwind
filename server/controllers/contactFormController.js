@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
 });
 
 //===============================
-//Retrieving (GET) contactForm to mongoDB
+//Retrieving (GET) ALL contactForm from mongoDB
 router.get("/", async (req, res) => {
   // console.log("req.body", req.body);
   // console.log("RES", res);
@@ -33,7 +33,7 @@ router.get("/", async (req, res) => {
 });
 
 //===============================
-//Retrieving (GET) SINGLEcontactForm to mongoDB
+//Retrieving (GET) SINGLEcontactForm from mongoDB
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;

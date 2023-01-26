@@ -17,4 +17,37 @@ router.post("/", async (req, res) => {
   }
 });
 
+//===============================
+//Retrieving (GET) ALL requestForm from mongoDB
+router.get("/", async (req, res) => {
+  // console.log("req.body", req.body);
+  // console.log("RES", res);
+  // return res.json(res)
+  try {
+    // creating form from schema, sending to mongoDB
+    const requestList = await RequestForm.find().exec();
+    res.status(201).json(requestList);
+  } catch (error) {
+    res.status(500).json({ error });
+  }
+});
+
+//===============================
+//Retrieving (GET) SINGLErequestForm from mongoDB
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    // console.log(req.params["id"]);
+    console.log(id);
+    const fetchSingleForm = await ContactForm.findById(id);
+    res.status(200).json(fetchSingleForm);
+  } catch (error) {
+    res.status(400).json({
+      data: "",
+      error: error.message,
+    });
+  }
+
+
+
 module.exports = router;

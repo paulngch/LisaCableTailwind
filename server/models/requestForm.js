@@ -17,6 +17,9 @@ const requestFormSchema = new mongoose.Schema(
     comments: { type: String, trim: true },
     country: { type: String, enum: ["singapore", "international"] },
     discord: { type: String, trim: true },
+    active: { type: Boolean, default: true },
+
+    adminComments: { type: String, trim: true, default: "" },
   },
   { timestamps: true }
 );
