@@ -39,7 +39,7 @@ router.get("/:id", async (req, res) => {
     const { id } = req.params;
     // console.log(req.params["id"]);
     console.log(id);
-    const fetchSingleForm = await ContactForm.findById(id);
+    const fetchSingleForm = await RequestForm.findById(id);
     res.status(200).json(fetchSingleForm);
   } catch (error) {
     res.status(400).json({
@@ -47,7 +47,28 @@ router.get("/:id", async (req, res) => {
       error: error.message,
     });
   }
+});
 
+//===============================
+//Updating (PUT) SINGLErequestForm to mongoDB
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateSingleForm = await RequestForm.findByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updateSingleForm);
+  } catch (error) {
+    return res.status(400).json({
+      data: "",
+      error: error.message,
+    });
+  }
+});
 
 
 module.exports = router;

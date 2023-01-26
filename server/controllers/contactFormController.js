@@ -47,35 +47,33 @@ router.get("/:id", async (req, res) => {
       error: error.message,
     });
   }
-
-  //===============================
-  //Updating (PUT) SINGLEcontactForm to mongoDB
-  router.put("/:id", async (req, res) => {
-    try {
-      const { id } = req.params;
-      const updateSingleForm = await ContactForm.findByIdAndUpdate(
-        id,
-        {
-          $set: req.body,
-        },
-        { new: true }
-      );
-      res.status(200).json(updateSingleForm)
-    } catch (error) {
-      return res.status(400).json({
-        data: "",
-        error: error.message,
-      });
-    }
-  });
-
-  // try {
-  //   // creating form from schema, sending to mongoDB
-  //   const contactList = await ContactForm.find().exec();
-  //   res.status(201).json(contactList);
-  // } catch (error) {
-  //   res.status(500).json({ error });
-  // }
 });
+//===============================
+//Updating (PUT) SINGLEcontactForm to mongoDB
+router.put("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateSingleForm = await ContactForm.findByIdAndUpdate(
+      id,
+      {
+        $set: req.body,
+      },
+      { new: true }
+    );
+    res.status(200).json(updateSingleForm);
+  } catch (error) {
+    return res.status(400).json({
+      data: "",
+      error: error.message,
+    });
+  }
+});
+// try {
+//   // creating form from schema, sending to mongoDB
+//   const contactList = await ContactForm.find().exec();
+//   res.status(201).json(contactList);
+// } catch (error) {
+//   res.status(500).json({ error });
+// }
 
 module.exports = router;

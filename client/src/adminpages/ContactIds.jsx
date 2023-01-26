@@ -37,9 +37,17 @@ export default function ContactIds() {
         `${import.meta.env.VITE_BASE_URL}/api/contactform/${id}`
       );
       console.log(response.data);
+      console.log(typeof response.data.active);
       // console.log(response.data.active)
-      setActiveState(response.data.active);
+      //   if(response.data.active === true){
+      //       console.log(activeState)
+      //   } else {
+      //     setActiveState(false);
+      //     console.log(activeState)
+
+      //   }
       setFormData(response.data);
+      setActiveState(response.data.active);
     } catch (error) {
       console.log(error.message);
     }
@@ -47,21 +55,22 @@ export default function ContactIds() {
 
   useEffect(() => {
     fetchContactForm();
-  }, [open,activeState]);
+  }, [open]);
 
   return (
     <>
       <Formik
         initialValues={{
-          active: activeState,
           adminComments: formData.adminComments,
         }}
-        onSubmit={async (values, { resetForm }) => {
+        onSubmit={async (values) => {
           try {
-            console.log(values);
+            // console.log(values);
+            const updatedValues = { ...values, active: activeState };
+            console.log(updatedValues);
             const res = await axios.put(
               `${import.meta.env.VITE_BASE_URL}/api/contactform/${id}`,
-              values
+              updatedValues
             );
 
             setOpen(true);
@@ -220,7 +229,13 @@ export default function ContactIds() {
                 <label className="block text-sm font-medium text-orange-700">
                   <>
                     Active
-                    <Field type="checkbox" name="active" className="m-6" />
+                    <input
+                      type="checkbox"
+                      name="active"
+                      className="m-6"
+                      defaultChecked={activeState}
+                      onClick={() => setActiveState(!activeState)}
+                    />
                   </>
                 </label>
 
