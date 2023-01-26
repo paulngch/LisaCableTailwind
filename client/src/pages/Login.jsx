@@ -23,7 +23,7 @@ export default function Login() {
   // },[])
 
   useEffect(() => {
-    user.data && navigate("/admin");
+    user.data && navigate("/admin/cablealbum");
   }, []);
 
   // let data;
@@ -72,7 +72,7 @@ export default function Login() {
           setEmail("");
           setPassword("");
 
-          navigate("/admin");
+          navigate("/admin/cablealbum");
         }
       } catch (error) {
         //returning of "Unauthorised"

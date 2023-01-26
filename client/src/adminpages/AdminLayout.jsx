@@ -17,13 +17,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 import { UserAuth } from "../context/AuthContext";
 
 const navigation = [
-  { name: "Home", href: "/admin", icon: HomeIcon, current: false },
-  {
-    name: "UL Cable",
-    href: "/admin/uploadcable",
-    icon: FolderIcon,
-    current: false,
-  },
+  
   {
     name: "Cable Album",
     href: "/admin/cablealbum",
@@ -31,8 +25,12 @@ const navigation = [
     current: false,
   },
 
-  { name: "UL Paracord", href: "#", icon: FolderIcon, current: false },
-  { name: "UL Connector", href: "#", icon: CalendarIcon, current: false },
+  {
+    name: "UL Cable",
+    href: "/admin/uploadcable",
+    icon: FolderIcon,
+    current: false,
+  },  
   {
     name: "Contact Forms",
     href: "/admin/contact",
