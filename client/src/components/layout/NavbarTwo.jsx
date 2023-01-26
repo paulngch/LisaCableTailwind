@@ -95,7 +95,7 @@ export default function NavbarTwo() {
                 Home
               </a>
 
-              <Popover className="relative">
+              {/* <Popover className="relative">
                 {({ open }) => (
                   <>
                     <Popover.Button
@@ -161,7 +161,7 @@ export default function NavbarTwo() {
                     </Transition>
                   </>
                 )}
-              </Popover>
+              </Popover> */}
 
               <a
                 href="/pages/album"
