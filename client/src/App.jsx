@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
 import LoadingOverlay from "./components/layout/LoadingOverlay";
 import ProtectRoute from "./components/routes/ProtectRoute";
 import About from "./pages/About";
@@ -18,8 +19,13 @@ import ContactIds from "./adminpages/ContactIds";
 import AdminCableAlbum from "./adminpages/AdminCableAlbum";
 import AdminRequest from "./adminpages/AdminRequest";
 import RequestIds from "./adminpages/RequestIds";
+import { initLightboxJS } from "lightbox.js-react";
+import "lightbox.js-react/dist/index.css";
 
 export default function App() {
+  useEffect(() => {
+    initLightboxJS("337E-5A78-C774-8226", "individual");
+  }, []);
   return (
     <div className="App">
       <BrowserRouter>

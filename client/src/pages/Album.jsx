@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
+import { Image } from "lightbox.js-react";
+import "lightbox.js-react/dist/index.css";
 
 export default function Album() {
   const [albumPictures, setAlbumPictures] = useState([]);
@@ -42,13 +44,9 @@ export default function Album() {
               className="group relative border-r border-b border-gray-200 p-4 sm:p-6"
             >
               <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg bg-gray-200 group-hover:opacity-75">
-                <Zoom>
-                  <img
-                    src={cable.url}
-                    alt={cable.desc}
-                    className="h-full w-full object-cover object-center pointer-events-auto"
-                  />
-                </Zoom>
+                <Image
+                  image={{ src: `${cable.url}`, title: `${cable.desc}` }}
+                />
               </div>
               <div className="pt-10 pb-4 text-center">
                 <h3 className="text-sm font-medium text-gray-900">
