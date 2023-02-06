@@ -43,7 +43,6 @@ export default function App() {
           </Route>
           <Route element={<ProtectRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
-              {/* <Route path="/admin" element={<AdminHome />} /> */}
               <Route index element={<AdminHome />} />
               <Route path="/admin/uploadcable" element={<UploadCable />} />
               <Route path="/admin/cablealbum" element={<AdminCableAlbum />} />

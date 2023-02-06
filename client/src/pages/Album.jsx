@@ -51,7 +51,7 @@ export default function Album() {
               <div className="pt-10 pb-4 text-center">
                 <h3 className="text-sm font-medium text-gray-900">
                   <a>
-                    {/* <span aria-hidden="true" className="absolute inset-0" /> */}
+   
                     {cable.desc}
                   </a>
                 </h3>

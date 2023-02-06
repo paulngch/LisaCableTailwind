@@ -39,7 +39,7 @@ export default function AdminCableAlbum() {
   }, [show]);
 
   const handleDelete = async (value) => {
-    // console.log(value)
+
     try {
       const response = await axios.delete(
         `${import.meta.env.VITE_BASE_URL}/api/cable/${value}`
@@ -92,13 +92,13 @@ export default function AdminCableAlbum() {
                 <div className="pt-10 pb-4 text-center">
                   <h3 className="text-sm font-medium text-gray-900">
                     <a>
-                      {/* <span aria-hidden="true" className="absolute inset-0" /> */}
+                    
                       {cable.desc}
                     </a>
                   </h3>
                   <button
                     value={cable.id}
-                    // onClick={(event) => handleDelete(event, cable.id)}
+                    
                     onClick={() =>
                       setConfirmDelete({ show: true, id: cable.id })
                     }

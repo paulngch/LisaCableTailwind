@@ -65,7 +65,7 @@ export default function ContactIds() {
         }}
         onSubmit={async (values) => {
           try {
-            // console.log(values);
+
             const updatedValues = { ...values, active: activeState };
             console.log(updatedValues);
             const res = await axios.put(
@@ -76,12 +76,7 @@ export default function ContactIds() {
             setOpen(true);
             console.log("PUT SUCCESS");
 
-            // const res = await axios.post(
-            //   `${import.meta.env.VITE_BASE_URL}/api/requestform`,
-            //   values
-            // );
-            // resetForm();
-            // return setOpen(true);
+
           } catch (error) {
             return console.log(error.message);
           }
@@ -121,21 +116,7 @@ export default function ContactIds() {
                 </div>
                 <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                   <div className="sm:col-span-3">
-                    {/* <label
-                        htmlFor="first-name"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Name
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          type="text"
-                          name="first-name"
-                          id="first-name"
-                          autoComplete="given-name"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div> */}
+                    
                     <div>
                       <label
                         htmlFor="name"
@@ -156,24 +137,7 @@ export default function ContactIds() {
                     </div>
                   </div>
 
-                  {/* <div className="sm:col-span-3">
-                      <label
-                        htmlFor="last-name"
-                        className="block text-sm font-medium text-gray-700"
-                      >
-                        Last name
-                      </label>
-                      <div className="mt-1">
-                        <input
-                          type="text"
-                          name="last-name"
-                          id="last-name"
-                          autoComplete="family-name"
-                          className="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                        />
-                      </div>
-                    </div> */}
-
+                  
                   <div className="sm:col-span-4">
                     <div>
                       <label
@@ -277,12 +241,7 @@ export default function ContactIds() {
                 >
                   Back
                 </NavLink>
-                {/* <button
-                  type="button"
-                  className="rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  Cancel
-                </button> */}
+                
                 <button
                   href={`${import.meta.env.VITE_BASE_URL}/api/contactform`}
                   type="submit"

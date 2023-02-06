@@ -34,15 +34,15 @@ export default function Charity() {
           </p>
           <div className="charityLogoContainer flex flex-wrap h-32 justify-center space-x-10">
             <img className="h-full p-3" src="/Picsbyhooman.png" />
-            {/* <h3>Picsbyhooman</h3> */}
+       
             <img className="h-full p-3" src="/ProjectLuni.png" />
-            {/* <h3>ProjectLuni</h3> */}
+          
             <img className="h-full p-3 bg-slate-600" src="/SOSDlogo.png" />
-            {/* <h3>Save-Our-Street-Dogs</h3> */}
+          
             <img className="h-full p-8" src="/touchlogo.png" />
-            {/* <h3>Touch Community Services</h3> */}
+       
             <img className="h-full p-2" src="/ACRES.png" />
-            {/* <h3>ACRES</h3> */}
+ 
           </div>
         </div>
       </div>

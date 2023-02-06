@@ -5,11 +5,11 @@ import { UserAuth } from "../../context/AuthContext";
 export default function BottomFooter() {
   
   const [user, setUser] = UserAuth();
-  // console.log(user)
+
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // setState({ data: null, loading: false, error: null });
+
     localStorage.removeItem("token");
     setUser({
       data: null,

@@ -12,21 +12,12 @@ export default function Login() {
   const [user, setUser] = UserAuth();
   const navigate = useNavigate();
 
-  // useEffect(()=>{
-  //   //Refer to AuthContext, this is
-  //   const token = localStorage.getItem("token")
-  //   if (token) {
-  //     axios.defaults.headers.common["authorization"] = `Bearer ${token}`;
-  //   }
-  //     navigate("/admin");
-
-  // },[])
 
   useEffect(() => {
     user.data && navigate("/admin/cablealbum");
   }, []);
 
-  // let data;
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -133,7 +124,7 @@ export default function Login() {
               {errorMsg && <div className=" text-red-500">{errorMsg}</div>}
               {formik.touched.email && formik.errors.email ? (
                 <div>{formik.errors.email}</div>
-              ) : // <div>{formik.errors.email}</div>
+              ) : 
               null}
               <br />
               <button
@@ -143,7 +134,7 @@ export default function Login() {
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                   <svg
                     className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                    //   xmlns="http://www.w3.org/2000/svg"
+          
                     viewBox="0 0 20 20"
                     fill="currentColor"
                     aria-hidden="true"
