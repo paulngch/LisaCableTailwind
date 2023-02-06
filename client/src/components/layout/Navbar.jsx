@@ -16,7 +16,7 @@ export default function Navbar() {
             <img className="flex h-20" src="/LisaWorksword.png" />
           </div>
         </div>
-        <div className="rightEmpty hidden w-[10%] min-w-0 lg:block"></div>
+        <div className="rightEmpty hidden w-[8%] min-w-0 lg:block"></div>
       </div>
     </>
   );
