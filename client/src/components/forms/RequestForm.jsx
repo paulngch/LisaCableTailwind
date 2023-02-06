@@ -62,8 +62,7 @@ export default function RequestForm() {
                     Preference
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">
-                    This information will be will be used by us to estimate a
-                    quote.
+                    This information will be used by us to estimate a quote.
                   </p>
                 </div>
                 <div className="mt-5 space-y-6 md:col-span-2 md:mt-0">
@@ -86,12 +85,14 @@ export default function RequestForm() {
                               >
                                 {design.type}
                               </label>
-                              <p className=" text-sm text-gray-500">
+                              <p className=" text-xs text-gray-500">
                                 Click to enlarge.
+                                <br />
+                                (Illustration purposes only)
                               </p>
                               <Zoom>
                                 <img
-                                  className=" px-2 max-w-[200px]"
+                                  className=" pr-2 max-w-[200px]"
                                   src={design.imageUrl}
                                 />
                               </Zoom>

@@ -21,7 +21,7 @@ function classNames(...classes) {
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
-  message: Yup.string().required("required"),
+  message: Yup.string().required("Required"),
 });
 
 export default function Contact() {
@@ -141,7 +141,6 @@ export default function Contact() {
                         className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         placeholder="Name"
                         required="required"
-                       
                       />
                       {errors.name && touched.name ? (
                         <div>{errors.name}</div>
@@ -159,14 +158,12 @@ export default function Contact() {
                         className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         placeholder="Email"
                         required="required"
-
-                      
                       />
                       {errors.email && touched.email ? (
                         <div>{errors.email}</div>
                       ) : null}
                     </div>
-                   
+
                     <Listbox value={selected} onChange={setSelected}>
                       {({ open }) => (
                         <>
@@ -277,7 +274,6 @@ export default function Contact() {
                         className="block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                         placeholder="Message"
                         required="required"
-                        
                       />
                       {errors.message && touched.message ? (
                         <div>{errors.message}</div>
