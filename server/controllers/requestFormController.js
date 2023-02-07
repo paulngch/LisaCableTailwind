@@ -20,13 +20,14 @@ router.post("/", async (req, res) => {
       from: "paulngch@gmail.com", // verified sender
       subject: `SendGrid: Cable Commission Request from ${data.name} , ${data.email}`,
       text: `${data.email} , ${data.contact} , ${data.country} , ${data.comments}`,
-      html: `Email: ${data.email} ${(<br />)} Contact: ${data.contact} ${(
-        <br />
-      )} Name: ${data.name} ${(<br />)} Discord: ${data.discord} ${(
-        <br />
-      )} Country: ${data.country} ${(<br />)} HostUSB: ${data.hostUsb} ${(
-        <br />
-      )} DeviceUSB: ${data.deviceUsb} ${(<br />)} Comments: ${data.comments}`,
+      html: `Email: ${data.email},
+      Contact: ${data.contact},
+      Name: ${data.name},
+      Discord: ${data.discord},
+      Country: ${data.country},
+      HostUSB: ${data.hostUsb},
+      DeviceUSB: ${data.deviceUsb},
+      Comments: ${data.comments}`,
     };
 
     res.status(201).json(requestForm);
