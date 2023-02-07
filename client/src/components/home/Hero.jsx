@@ -23,7 +23,7 @@ export default function Hero() {
                   id="social-impact-heading"
                   className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
                 >
-                  <span className="block sm:inline">New commissions</span>
+                  <span className="block sm:inline">New Batch</span>
                   {/* <span className="block sm:inline"></span> */}
                 </h2>
                 <p className="mt-3 text-xl text-white">

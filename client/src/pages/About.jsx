@@ -20,13 +20,9 @@ export default function About() {
           Hi, my name is Paul and my story began back in August 2022 when I was
           looking for something meaningful to do in-between jobs.
           <br />
-          <br /> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."
+          <br /> I loved crafting stuff and DIY. And I loved mechanical
+          keyboards. So I came to a not-so-eureka moment of combining both, and
+          why not do some good at the same time! And LisaWorks was born!
         </p>
       </div>
     </>
