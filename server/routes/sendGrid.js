@@ -14,8 +14,8 @@ const router = express.Router()
 //   res.sendFile(path.join(__dirname, "/form.html"));
 // });
 // const msg2 = {
-//     to: `2Payment@protonmail.com`, // recipient
-//     from: `2Payment@protonmail.com`, //verified sender
+//     to: `process.env.SENDGRID_EMAIL1`, // recipient
+//     from: `process.env.SENDGRID_EMAIL1`, //verified sender
 //     subject: 'Sending Batch 2',
 //     text: 'Sending another batch. This is 2',
 //     html: '<strong>and easy to do anywhere, even with Node.js</strong>',
