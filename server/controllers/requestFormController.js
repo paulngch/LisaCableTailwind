@@ -35,9 +35,10 @@ router.post("/", async (req, res) => {
       Comments: ${data.comments}`,
     };
 
-    sgMail.sendMultiple(msg).then(() => {
-      console.log("Email sent");
-    });
+    sgMail.sendMultiple(msg)
+    // .then(() => {
+    //   console.log("Email sent");
+    // });
 
    //SENDING TWILIO SMS
    client.messages
@@ -46,7 +47,7 @@ router.post("/", async (req, res) => {
      from: `${process.env.TWILIO_FROM_NUMBER}`,
      to: `${process.env.TWILIO_MY_NUMBER}`,
    })
-   .then((message) => console.log(message.sid));
+  //  .then((message) => console.log(message.sid));
 
 
 
