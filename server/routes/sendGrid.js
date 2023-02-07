@@ -5,9 +5,9 @@ const express = require("express");
 const app = express();
 const router = express.Router()
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 
 // app.route("/").get(function (req, res) {
