@@ -31,7 +31,7 @@ export default function Contact() {
   const [openError, setOpenError] = useState(false); //This is for ERROR MSG
   const cancelButtonRef = useRef(null);
   //================CHANGE EMAIL HERE=================
-  const contactUsEmail = "support@LisaWorks.com";
+  const contactUsEmail = "TinyLisa@pm.me";
   //==================================================
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -102,13 +102,13 @@ export default function Contact() {
                     </div>
                     <div className="mt-6">
                       <div className="sr-only">Phone number</div>
-                      <div className="flex">
+                      {/* <div className="flex">
                         <PhoneIcon
                           className="h-6 w-6 flex-shrink-0 text-gray-400"
                           aria-hidden="true"
                         />
                         <span className="ml-3">+65 235-3535</span>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="mt-3">
                       <div className="sr-only">Email</div>
