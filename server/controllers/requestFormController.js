@@ -1,17 +1,34 @@
 const express = require("express");
 const router = express.Router();
 require("dotenv").config();
-
 const RequestForm = require("../models/requestForm");
+const sgMail = require("@sendgrid/mail");
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 //===============================
 //Uploading (POST) requestForm to mongoDB
 router.post("/", async (req, res) => {
   console.log("req.body", req.body);
   try {
+    const data = req.body;
     //creating form from schema, sending to mongoDB
     const requestForm = await RequestForm.create(req.body);
-    
+
+    const msg = {
+      to: "TinyLisa@pm.me", // recipient
+      from: "paulngch@gmail.com", // verified sender
+      subject: `SendGrid: Cable Commission Request from ${data.name} , ${data.email}`,
+      text: `${data.email} , ${data.contact} , ${data.country} , ${data.comments}`,
+      html: `Email: ${data.email} ${(<br />)} Contact: ${data.contact} ${(
+        <br />
+      )} Name: ${data.name} ${(<br />)} Discord: ${data.discord} ${(
+        <br />
+      )} Country: ${data.country} ${(<br />)} HostUSB: ${data.hostUsb} ${(
+        <br />
+      )} DeviceUSB: ${data.deviceUsb} ${(<br />)} Comments: ${data.comments}`,
+    };
+
     res.status(201).json(requestForm);
   } catch (error) {
     res.status(500).json({ error });
@@ -70,6 +87,5 @@ router.put("/:id", async (req, res) => {
     });
   }
 });
-
 
 module.exports = router;
