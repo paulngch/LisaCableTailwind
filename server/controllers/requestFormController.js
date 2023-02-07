@@ -35,8 +35,7 @@ router.post("/", async (req, res) => {
       Comments: ${data.comments}`,
     };
 
-    sgMail.sendMultiple(msg);
-    .then(() => {
+    sgMail.sendMultiple(msg).then(() => {
       console.log("Email sent");
     });
 
@@ -45,8 +44,7 @@ router.post("/", async (req, res) => {
       body: `REQUESTFORM: ${data.email}, ${data.contact}, ${data.name}, ${data.discord}, ${data.comments}`,
       from: `${process.env.TWILIO_FROM_NUMBER}`,
       to: `${process.env.TWILIO_MY_NUMBER}`,
-    });
-     .then((message) => console.log(message.sid));
+    }).then((message) => console.log(message.sid));
 
     res.status(201).json(requestForm);
   } catch (error) {
