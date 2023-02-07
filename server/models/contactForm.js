@@ -7,7 +7,6 @@ const contactFormSchema = new mongoose.Schema(
       type: String,
       lowercase: true,
       required: [true, "can't be blank"],
-      index: true,
     },
     feedback: { type: String, enum: ["Request", "Feedback"] },
     message: { type: String, trim: true },

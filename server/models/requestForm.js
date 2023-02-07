@@ -7,7 +7,6 @@ const requestFormSchema = new mongoose.Schema(
       type: String,
       lowercase: true,
       required: [true, "can't be blank"],
-      index: true,
     },
     contact: { type: Number, required: true, trim: true },
     hostUsb: { type: String, enum: ["A", "C"] },
