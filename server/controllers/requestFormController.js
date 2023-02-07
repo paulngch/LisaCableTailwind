@@ -18,10 +18,10 @@ router.post("/", async (req, res) => {
     const data = req.body;
     //creating form from schema, sending to mongoDB
     const requestForm = await RequestForm.create(req.body);
-
+    
     //SENDING TWILIO EMAIL
     const msg = {
-      to: [`${process.env.SENDGRID_EMAIL1}`,`${process.env.SENDGRID_EMAIL2}`], // recipient
+      to: [`${process.env.SENDGRID_EMAIL1}`, `${process.env.SENDGRID_EMAIL2}`], // recipient
       from: `${process.env.SENDGRID_EMAIL1}`, // verified sender
       subject: `SendGrid: Cable Commission Request from ${data.name} , ${data.email}`,
       text: `${data.email} , ${data.contact} , ${data.country} , ${data.comments}`,
@@ -35,21 +35,18 @@ router.post("/", async (req, res) => {
       Comments: ${data.comments}`,
     };
 
-    sgMail.sendMultiple(msg)
-    // .then(() => {
-    //   console.log("Email sent");
-    // });
+    sgMail.sendMultiple(msg);
+    .then(() => {
+      console.log("Email sent");
+    });
 
-   //SENDING TWILIO SMS
-   client.messages
-   .create({
-     body: `REQUESTFORM: ${data.email}, ${data.contact}, ${data.name}, ${data.discord}, ${data.comments}`,
-     from: `${process.env.TWILIO_FROM_NUMBER}`,
-     to: `${process.env.TWILIO_MY_NUMBER}`,
-   })
-  //  .then((message) => console.log(message.sid));
-
-
+    //SENDING TWILIO SMS
+    client.messages.create({
+      body: `REQUESTFORM: ${data.email}, ${data.contact}, ${data.name}, ${data.discord}, ${data.comments}`,
+      from: `${process.env.TWILIO_FROM_NUMBER}`,
+      to: `${process.env.TWILIO_MY_NUMBER}`,
+    });
+     .then((message) => console.log(message.sid));
 
     res.status(201).json(requestForm);
   } catch (error) {

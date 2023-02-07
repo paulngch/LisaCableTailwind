@@ -6,7 +6,6 @@ const requestFormSchema = new mongoose.Schema(
     email: {
       type: String,
       lowercase: true,
-      unique: true,
       required: [true, "can't be blank"],
       index: true,
     },
