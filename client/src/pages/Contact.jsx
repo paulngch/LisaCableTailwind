@@ -57,18 +57,20 @@ export default function Contact() {
         }}
         validationSchema={ContactFormSchema}
         onSubmit={async (values, { resetForm }) => {
-          console.log(values);
+          // console.log(values);
           const updatedValues = { ...values, feedback: feedbackType };
-          console.log("UPDATED VALs", updatedValues);
+          // console.log("UPDATED VALs", updatedValues);
           //===========================================
           //TRY CATCH for Axios to post to mongoDB
           //============
           try {
             const res = await axios.post(
               `${import.meta.env.VITE_BASE_URL}/api/contactform`,
+              // "https://dead-teal-pike-gear.cyclic.app/api/contactform",
               updatedValues
             );
             resetForm();
+            console.log(res);
             return setOpen(true); //open Submit-success Msg
           } catch (error) {
             console.log(error.message);
