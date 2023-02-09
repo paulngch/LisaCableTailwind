@@ -82,7 +82,8 @@ The project scope evolved throughout the process; initially from a "simple" read
 ### Wireframe
 
 Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527728016)
-
+<img src="https://user-images.githubusercontent.com/30496630/217869112-0182aeec-392c-4b74-9421-ed502d0fb6f5.PNG" width="400"/>
+<img src="https://user-images.githubusercontent.com/30496630/217869417-fd7399e2-114c-431d-b93c-2ee9f7404f19.PNG" width="400"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -92,7 +93,7 @@ Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527
 - [x] **Step 2:** Plan database schema / data structure & translate it into "forms" in wireframes
 - [x] **Step 3:** Determine what user-inputs are necessary
 - [x] **Step 4:** Explore what other functions are needed (major CRUD functions)
-- [x] **Step 5:** Determine necessaity and structure of "Admin Dashboard"
+- [x] **Step 5:** Determine necessity and structure of "Admin Dashboard"
 - [x] **Step 6:** Explore functions needed for Admin Dashboard (CRUD functions)
 - [x] **Step 7:** (Stretch Goals): Make the website/webapp mobile responsive
 - [x] **Step 8:** (Stretch Goals): Add Twilio API for SMS & Email integration
@@ -102,7 +103,21 @@ Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527
 ## Deployment
 
 The app is deployed on Cyclic (Backend) & Netlify (Frontend), and you can view the app here: https://lisaworks.co/
+<img src="https://user-images.githubusercontent.com/30496630/217869767-16d98204-ff0e-4c1f-9b08-22b9a725ea6f.PNG" width="400"/>
 
+Admin dashboard Images:
+
+Cable Album (for viewing uploaded images):
+<img src="https://user-images.githubusercontent.com/30496630/217871064-86be2d0f-e1c3-4e95-9167-e639cddeddef.PNG" width="400"/>
+
+Cable Upload (for uploading images):
+<img src="https://user-images.githubusercontent.com/30496630/217871410-cdc3a5fb-f09b-472d-9ce6-599d65f57a30.PNG" width="400"/>
+
+Contact/Request Dashboard (view of all contact/request forms submitted):
+<img src="https://user-images.githubusercontent.com/30496630/217871710-87d8b27e-0af1-4020-ab0f-632f49915aa2.PNG" width="400"/>
+
+Contact/Request, individual form (view of individual contact/request form, able to add own comments & mark as Active/Inactive):
+<img src="https://user-images.githubusercontent.com/30496630/217871988-ae46f78f-e51c-4ede-bb68-430be1451366.PNG" width="400"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -86,16 +86,16 @@ export default function RequestForm() {
                                 {design.type}
                               </label>
                               <p className=" text-xs text-gray-500">
-                                Click to enlarge.
+                                {/* Click to enlarge. */}
                                 <br />
                                 (Illustration purposes only)
                               </p>
-                              <Zoom>
+                              {/* <Zoom> */}
                                 <img
                                   className=" pr-2 max-w-[200px]"
                                   src={design.imageUrl}
                                 />
-                              </Zoom>
+                              {/* </Zoom> */}
                             </div>
                             <div className="ml-3 flex pl-2 items-center ">
                               <Field
