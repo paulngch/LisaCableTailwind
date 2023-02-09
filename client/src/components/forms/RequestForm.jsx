@@ -136,7 +136,7 @@ export default function RequestForm() {
                   </div>
 
                   <div className="grid grid-cols-8 gap-6">
-                    <div className="col-span-2 sm:col-span-3">
+                    <div className="col-span-4 sm:col-span-3">
                       <label
                         htmlFor="country"
                         className="block text-sm font-medium text-gray-700"
