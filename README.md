@@ -81,9 +81,11 @@ The project scope evolved throughout the process; initially from a "simple" read
 
 ### Wireframe
 
-Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527728016)
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217869112-0182aeec-392c-4b74-9421-ed502d0fb6f5.PNG" width="400"/>
 <img src="https://user-images.githubusercontent.com/30496630/217869417-fd7399e2-114c-431d-b93c-2ee9f7404f19.PNG" width="400"/>
+</div>
+- Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527728016)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
