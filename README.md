@@ -83,11 +83,6 @@ The project scope evolved throughout the process; initially from a "simple" read
 
 Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527728016)
 
-<div align="center">
-   <img src="https://imgur.com/a/DFUYCMH" width="400"/>
-   <img src="https://imgur.com/xCYULSx" width="400"/>
-   <img src="https://imgur.com/9UvqiTb" width="400"/>
-</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -108,12 +103,6 @@ Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527
 
 The app is deployed on Cyclic (Backend) & Netlify (Frontend), and you can view the app here: https://lisaworks.co/
 
-<div align="center">
-  <a href="https://lisaworks.co/">
-    <img src="https://imgur.com/bt80DQs" width="400"/>
-    <img src="https://imgur.com/WyWYuC1" width="400"/>
-  </a>
-</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
