@@ -31,7 +31,7 @@ export default function SpecsContainer() {
         </div>
         <div></div>
       </div>
-      <button className="mt-10 inline-flex items-center rounded border border-transparent bg-gray-500 px-2.5 py-1.5 text-xs font-medium text-black-700  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+      <button className="mt-10 inline-flex items-center rounded text-white border border-transparent bg-gray-500 px-2.5 py-1.5 text-xs font-medium text-black-700  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
         <NavLink to="/pages/request">Request a quote</NavLink>
       </button>
     </div>

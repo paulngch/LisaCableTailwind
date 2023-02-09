@@ -5,13 +5,13 @@ export default function FeaturedItem({ details }) {
   return (
     <>
       <a
-        href="#"
+        // href="#"
         className="relative flex h-80 w-56 flex-col overflow-hidden rounded-lg p-6 hover:opacity-75 xl:w-auto"
       >
         <span aria-hidden="true" className="absolute inset-0">
           <img
             src={imageUrl}
-            alt=""
+            
             className="h-full w-full object-cover object-center"
           />
         </span>

@@ -10,14 +10,14 @@ const getData = [
     type: "Braided multi-color",
   },
   {
-    name: "trrs cable braided",
+    name: "TRRS cable braided",
     imageUrl: "/trrssingle.jpg",
-    type: "Braided single-color trrs",
+    type: "Braided single-color TRRS",
   },
   {
-    name: "trrs cable braided",
+    name: "TRRS cable braided",
     imageUrl: "/trrsbraid.jpg",
-    type: "Braided multi-color trrs",
+    type: "Braided multi-color TRRS",
   },
   {
     name: "straight cable",
