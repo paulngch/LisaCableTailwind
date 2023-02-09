@@ -102,22 +102,32 @@ Link: [Lisa Works](https://miro.com/app/board/uXjVPHdJjuw=/?share_link_id=978527
 
 ## Deployment
 
-The app is deployed on Cyclic (Backend) & Netlify (Frontend), and you can view the app here: https://lisaworks.co/
+- The app is deployed on Cyclic (Backend) & Netlify (Frontend), and you can view the app here: https://lisaworks.co/
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217869767-16d98204-ff0e-4c1f-9b08-22b9a725ea6f.PNG" width="400"/>
+</div>
 
-Admin dashboard Images:
+## Admin dashboard Images:
 
-Cable Album (for viewing uploaded images):
+- Cable Album (for viewing uploaded images):
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217871064-86be2d0f-e1c3-4e95-9167-e639cddeddef.PNG" width="400"/>
+</div>
 
-Cable Upload (for uploading images):
+- Cable Upload (for uploading images):
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217871410-cdc3a5fb-f09b-472d-9ce6-599d65f57a30.PNG" width="400"/>
+</div>
 
-Contact/Request Dashboard (view of all contact/request forms submitted):
+- Contact/Request Dashboard (view of all contact/request forms submitted):
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217871710-87d8b27e-0af1-4020-ab0f-632f49915aa2.PNG" width="400"/>
+</div>
 
-Contact/Request, individual form (view of individual contact/request form, able to add own comments & mark as Active/Inactive):
+- Contact/Request, individual form (view of individual contact/request form, able to add own comments & mark as Active/Inactive):
+<div align="center">
 <img src="https://user-images.githubusercontent.com/30496630/217871988-ae46f78f-e51c-4ede-bb68-430be1451366.PNG" width="400"/>
+</div>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,25 +161,6 @@ Paul Ng:
 - Special thanks to Simon Lau, our General Assembly instructor for his advice.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # LisaWorks
 
