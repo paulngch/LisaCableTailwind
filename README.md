@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# Lisa Works (Showcase web app)
+# Lisa Works (Showcase web app -  DEFUNCT)
 
 <div id="header" align="center">
   <a href="https://lisaworks.co/">
@@ -41,7 +41,7 @@
 
 ## Project Overview
 
-The project aimed to fulfill the real-life requirement of GA's capstone project.
+This was my capstone project at GA.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
