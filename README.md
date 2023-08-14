@@ -41,9 +41,7 @@
 
 ## Project Overview
 
-The project aimed to fulfill the real-life requirement of GA for a classroom display app. Similar to working in team projects in the industry, the group got to meet up with the stakeholders involved and discussions/briefs/updates were communicated throughout the project's duration. The team worked closely with stakeholders to ensure the app met their needs.
-
-The project scope evolved throughout the process; initially from a "simple" read-and-display app with CRUD functions, to a more funtional room booking app that also does the display for classrooms use/users.
+The project aimed to fulfill the real-life requirement of GA's capstone project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
